@@ -1,0 +1,35 @@
+@mixin mediaMin($width) {
+  @media only screen and (min-width: $width+ "px") {
+    @content;
+  }
+}
+
+@mixin xx {
+  @include mediaMin(1920) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @include mediaMin(1440) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @include mediaMin(1280) {
+    @content;
+  }
+}
+
+@mixin md {
+  @include mediaMin(960) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @include mediaMin(768) {
+    @content;
+  }
+}

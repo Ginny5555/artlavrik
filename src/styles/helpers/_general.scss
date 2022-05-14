@@ -1,0 +1,110 @@
+body{
+	position: relative;
+	font-family: 'Prompt', sans-serif;
+	font-weight: 400;
+	color: $primary-text;
+	background-color: #F3F3F4;
+	padding-top: 48px;
+
+	@include sm{
+		padding-top: 0;
+	}
+
+	&.noscroll{
+		overflow: hidden;
+	}
+}
+
+.font-titanium{
+	font-family: 'Titillium Web', sans-serif;
+	letter-spacing: 0.01em;
+}
+
+.lined-title{
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 36px;
+	font-feature-settings: 'pnum' on, 'lnum' on;
+	text-align: center;
+	overflow: hidden;
+
+	@include sm{
+		font-size: 36px;
+		line-height: 44px;
+	}
+
+	@include lg{
+		font-size: 48px;
+		line-height: 125%;
+	}
+
+	&::before, &::after{
+		content: "";
+		display: inline-block;
+		position: relative;
+		background-color: $grey-beach;
+		height: 1px;
+		vertical-align: middle;
+		width: 50%;
+	}
+
+	&::before{
+		right: 16px;
+		margin-left: -50%;
+
+		@include sm{
+			right: 28px;
+		}
+
+		@include lg{
+			right: 48px;
+		}
+	}
+
+	&::after{
+		left: 16px;
+		margin-right: -50%;
+
+		@include sm{
+			left: 28px;
+		}
+
+		@include lg{
+			left: 48px;
+		}
+	}
+
+}
+
+.swiper-pagination{
+	&-bullet{
+		width: 36px;
+		height: 4px;
+		background-color: $grey-beach;
+		border-radius: 0;
+		opacity: 1;
+
+		&-active{
+			background-color: $link;
+		}
+	}
+}
+
+picture{
+	width: 100%;
+	height: 100%;
+}
+
+.container{
+	margin: 0 auto;
+	width: calc(100% - 30px);
+
+	@include sm{
+		width: calc(100% - 68px);
+	}
+
+	@include lg{
+		width: 100%;
+		max-width: 1170px;
+	}
+}

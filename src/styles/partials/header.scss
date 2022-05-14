@@ -1,0 +1,283 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    background-color: $white;
+    z-index: 10;
+    width: 100%;
+    height: 48px;
+    transform: translateX(-50%);
+
+    @include sm{
+        top: 32px;
+        width: 520px;
+    }
+
+    @include md{
+        width: 436px;
+    }
+
+    @include lg{
+        width: 371px;
+    }
+
+    &__wrapper{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px;
+
+        @include md{
+            padding: 0;
+        }
+    }
+
+    &__logo{
+        width: 48px;
+        height: 48px;
+    }
+
+    nav{
+        display: flex;
+
+        ul{
+            display: flex;
+            column-gap: 32px;
+
+            @include sm{
+                column-gap: 60px;
+            }
+
+            @include lg{
+                column-gap: 32px;
+            }
+
+            .menu-item{
+
+                & > a{
+                    font-family: 'Titillium Web', sans-serif;
+                    font-weight: 600;
+                    font-size: 14px;
+                    line-height: 20px;
+                    letter-spacing: 0.01em;
+
+                    @include md{
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                }
+
+                &:hover{
+
+                    & > a{
+                        color: $link;
+                    }
+                }
+
+                &.current{
+                    border-bottom: 2px solid $link;
+
+                    & > a{
+                        color: $link;
+                    }
+                }
+            }
+        }
+    }
+
+    #burger-button{
+        display: flex;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        transition: all .3s ease-in;
+
+        @include md{
+            margin-right: 24px;
+        }
+
+        &.active{
+            transform: rotate(90deg);
+
+            svg{
+                path{
+                    fill: $link;
+                }
+            }
+
+            & + .burger-menu{
+                display: block;
+            }
+        }
+    }
+
+    .burger-menu{
+        position: absolute;
+        display: none;
+        width: 125px;
+        background-color: $white;
+        right: 0;
+        bottom: 0;
+        transform: translateY(100%);
+
+        .burger-contact{
+            position: relative;
+            padding: 8px 16px;
+
+            &:not(&:last-child){
+                &::after{
+                    content: "";
+                    position: absolute;
+                    width: 93px;
+                    height: 1px;
+                    background-color: $grey-beach;
+                    bottom: 0;
+                    left: 16px;
+                }
+            }
+
+            &__link{
+                display: flex;
+                align-items: center;
+                font-size: 16px;
+                line-height: 24px;
+            }
+
+            &__icon{
+                width: 20px;
+                height: 20px;
+                margin-right: 9px;
+            }
+
+            &:hover{
+                background-color: rgba(234, 65, 54, .2);
+            }
+        }
+    }
+
+    #products-item:hover > .products-menu{
+
+        @include lg{
+            height: 257px;
+            transition-delay: 0s;
+
+            &::before{
+                display: block;
+            }
+        }
+    }
+
+    #products-item:hover .products-menu__wrapper{
+
+        @include lg{
+            visibility: visible;
+            opacity: 1;
+            transition: all 1s ease-in-out;
+        }
+    }
+
+    .products-menu{
+        position: absolute;
+        background-color: $white;
+        left: 48px;
+        bottom: -14px;
+        transform: translateY(100%);
+        box-shadow: 0 10px 58px rgba(0, 0, 0, 0.08);
+        height: 0;
+        transition: height 0.5s ease-in-out;
+        transition-delay: .3s;
+
+        &__wrapper{
+            display: flex;
+            visibility: hidden;
+            opacity: 0;
+            padding: 24px 32px 20px 32px;
+            column-gap: 60px;
+            overflow: hidden;
+            transition: all .5s ease-in-out;
+        }
+
+        &::before {
+            background-color: $white;
+            content: "\00a0";
+            display: none;
+            height: 16px;
+            width: 16px;
+            position: absolute;
+            top: -7px;
+            left: 50px;
+            transform: rotate(47deg) skew(5deg);
+        }
+
+        &:hover{
+            display: flex;
+        }
+
+        &.active{
+            @include lg{
+                display: flex;
+            }
+        }
+
+        &__column{
+            display: flex;
+            flex-direction: column;
+            row-gap: 14px;
+
+            h4{
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 28px;
+            }
+
+            ul{
+                display: flex;
+                flex-direction: column;
+                row-gap: 8px;
+
+                li{
+                    display: flex;
+                    align-items: center;
+                    width: max-content;
+
+                    & > a, & > span{
+                        font-size: 18px;
+                        line-height: 28px;
+                    }
+
+                    & > a {
+                        color: $link;
+                        border-bottom: 1px solid $link;
+                        white-space: nowrap;
+                    }
+
+                    & > span{
+                        color: $pressed;
+                        margin-left: 4px;
+                    }
+
+                    & > img{
+                        width: 20px;
+                        height: 20px;
+                        object-fit: contain;
+                        margin-left: 4px;
+                    }
+                }
+            }
+        }
+
+        &__more{
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 20px;
+            color: $link;
+
+            svg{
+                margin-left: 3px;
+            }
+        }
+    }
+}
