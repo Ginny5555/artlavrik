@@ -7,6 +7,7 @@ import 'swiper/css/pagination';
 //import { elementScrollIntoView } from "seamless-scroll-polyfill";
 
 
+// TEAM SLIDER
 new Swiper(".team__slider .swiper", {
     modules: [Pagination],
     slidesPerView: 'auto',
@@ -23,67 +24,59 @@ new Swiper(".team__slider .swiper", {
         el: '.team__slider .swiper-pagination',
     },
 })
-const servicesSliderOptions = {
-    modules: [Pagination],
-    enabled: false,
-    init: false,
-    slidesPerView: 'auto',
-    spaceBetween: 9,
-    breakpoints: {
-        768: {
-            slidesPerView: 2,
-            spaceBetween: 20
-        }
-    },
-    pagination: {
-        el: '.services__wrapper .swiper-pagination',
-    },
+
+// SERVICES SLIDER
+const servicesSliderBreakpoint = window.matchMedia('(min-width: 960px)');
+let servicesSliderInstance;
+const enableServicesSlider = () => {
+    servicesSliderInstance = new Swiper(".services__wrapper .swiper", {
+        modules: [Pagination],
+        slidesPerView: 'auto',
+        spaceBetween: 9,
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            }
+        },
+        pagination: {
+            el: '.services__wrapper .swiper-pagination',
+        },
+    })
 }
-const servicesSliderInstance = new Swiper(".services__wrapper .swiper", servicesSliderOptions);
 
 const servicesSlider = () => {
-    const breakpoint = window.matchMedia('(min-width: 0px) and (max-width: 959px)');
-    if(breakpoint.matches && !servicesSliderInstance?.enabled){
-        servicesSliderInstance.enable();
-        servicesSliderInstance.init();
-    } else if(!breakpoint.matches && servicesSliderInstance?.enabled){
-        servicesSliderInstance.disable();
+    if(servicesSliderBreakpoint.matches){
+        if(servicesSliderInstance !== undefined) servicesSliderInstance.destroy(true, true);
+        return;
+    } else if(!servicesSliderBreakpoint.matches){
+        return enableServicesSlider();
     }
 }
 
+servicesSliderBreakpoint.addListener(servicesSlider);
 servicesSlider();
 
+
+// MARQUEE
+const marqueeBreakpoint = window.matchMedia('(min-width: 960px)');
 const initMarquee = () => {
-    const breakpoint = window.matchMedia('(min-width: 0px) and (max-width: 959px)');
-    if (breakpoint.matches){
-        nodeMarquee({
-            parent: '.mobile-runner__wrapper'
-        });
-    } else{
+    if (marqueeBreakpoint.matches){
         nodeMarquee({
             parent: '.desktop-logos__item.horizontal .wrapper'
         });
+    } else{
+        nodeMarquee({
+            parent: '.mobile-runner__wrapper'
+        });
     }
 }
+
 initMarquee();
 
 // MENU
 const burgerButton = document.getElementById("burger-button");
 burgerButton.addEventListener("click", () => burgerButton.classList.toggle("active"));
-
-// PRODUCTS
-
-// const productsWrapperHeight = () => {
-//     let height = 0;
-//     const productsWrapper = document.querySelector(".products__wrapper");
-//     const products = productsWrapper.children;
-//
-//     for (let i = 0; i < 2; i++){
-//         height += products[i].clientHeight + 24
-//     }
-//     productsWrapper.style.maxHeight = `${height}px`;
-// }
-// productsWrapperHeight();
 
 // TABS
 const tabs = document.querySelectorAll("[data-tab]");
@@ -117,10 +110,4 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll("[data-animation]").forEach(el => {
     observer.observe(el);
-});
-
-
-// ON WINDOW RESIZE
-window.addEventListener('resize', function() {
-    servicesSlider();
 });
