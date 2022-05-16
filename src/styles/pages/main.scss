@@ -1276,12 +1276,20 @@
                         color: $white;
 
                         @include lg{
+                            transition: color $hover-transition-length ease-in-out;
                             color: $primary-text;
                         }
                     }
 
                     &:hover{
                         cursor: pointer;
+
+                        & > p{
+                            @include lg{
+                                color: $white;
+                            }
+                        }
+
                     }
 
                     &:hover + .principles-card__bottom{
