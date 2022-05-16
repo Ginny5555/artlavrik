@@ -323,12 +323,59 @@
                 }
             }
 
-            &__link{
+            &:hover .product__explore{
+                @include lg{
+                    opacity: 1;
+                }
+            }
+
+            &__explore{
                 position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
+                display: flex;
+                align-items: center;
+                bottom: 24px;
+                right: 24px;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 16px;
+                color: $link;
+                transition: opacity $hover-transition-length ease-in-out;
+
+                @include sm{
+                    bottom: 28px;
+                    right: 28px;
+                }
+
+                @include md{
+                    bottom: 40px;
+                    right: 40px;
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+
+                @include lg{
+                    font-size: 16px;
+                    line-height: 24px;
+                    opacity: 0;
+                }
+
+                svg{
+                    margin-left: 4px;
+                }
+
+                &.link-secondary{
+                    color: $grey-beach;
+
+                    svg path{
+                        stroke: $grey-beach;
+                    }
+                }
+
+                &.centered{
+                    right: unset;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
             }
 
             &__adaptive{
@@ -402,6 +449,19 @@
                     @include sm{
                         top: unset;
                         bottom: 24px;
+                    }
+                }
+
+                .product__explore{
+
+                    @include sm{
+                        color: $grey-beach;
+                    }
+
+                    svg path{
+                        @include sm{
+                            stroke: $grey-beach;
+                        }
                     }
                 }
             }
