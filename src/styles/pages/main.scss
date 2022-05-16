@@ -329,6 +329,14 @@
                 }
             }
 
+            &__link{
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+
             &__explore{
                 position: absolute;
                 display: flex;
@@ -340,6 +348,7 @@
                 line-height: 16px;
                 color: $link;
                 transition: opacity $hover-transition-length ease-in-out;
+                z-index: 2;
 
                 @include sm{
                     bottom: 28px;
