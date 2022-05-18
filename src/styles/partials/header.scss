@@ -8,17 +8,9 @@
     height: 48px;
     transform: translateX(-50%);
 
-    @include sm{
-        top: 32px;
-        width: 520px;
-    }
-
     @include md{
-        width: 436px;
-    }
-
-    @include lg{
-        width: 371px;
+        top: 32px;
+        width: 741px;
     }
 
     &__wrapper{
@@ -26,11 +18,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 15px;
-
-        @include md{
-            padding: 0;
-        }
     }
 
     &__logo{
@@ -40,17 +27,23 @@
 
     nav{
         display: flex;
+        width: calc(100% - 48px);
+
+        @include sm{
+            width: calc(100% - 141px);
+        }
+
+        @include md{
+            width: calc(100% - 109px);
+        }
 
         ul{
             display: flex;
-            column-gap: 32px;
+            justify-content: space-between;
+            width: 100%;
 
             @include sm{
-                column-gap: 60px;
-            }
-
-            @include lg{
-                column-gap: 32px;
+                align-items: center;
             }
 
             .menu-item{
@@ -62,7 +55,7 @@
                     line-height: 20px;
                     letter-spacing: 0.01em;
 
-                    @include md{
+                    @include sm{
                         font-size: 16px;
                         line-height: 24px;
                     }
@@ -72,211 +65,120 @@
 
                     & > a{
                         color: $link;
+
+                        svg path{
+                            fill: $link;
+                        }
                     }
                 }
 
-                &.current{
-                    border-bottom: 2px solid $link;
-
-                    & > a{
-                        color: $link;
-                    }
-                }
-            }
-        }
-    }
-
-    #burger-button{
-        display: flex;
-        align-items: center;
-        width: 24px;
-        height: 24px;
-        transition: all .3s ease-in;
-
-        @include md{
-            margin-right: 24px;
-        }
-
-        &.active{
-            transform: rotate(90deg);
-
-            svg{
-                path{
-                    fill: $link;
-                }
-            }
-
-            & + .burger-menu{
-                display: block;
-            }
-        }
-    }
-
-    .burger-menu{
-        position: absolute;
-        display: none;
-        width: 125px;
-        background-color: $white;
-        right: 0;
-        bottom: 0;
-        transform: translateY(100%);
-
-        .burger-contact{
-            position: relative;
-            padding: 8px 16px;
-
-            &:not(&:last-child){
-                &::after{
-                    content: "";
-                    position: absolute;
-                    width: 93px;
-                    height: 1px;
-                    background-color: $grey-beach;
-                    bottom: 0;
-                    left: 16px;
-                }
-            }
-
-            &__link{
-                display: flex;
-                align-items: center;
-                font-size: 16px;
-                line-height: 24px;
-            }
-
-            &__icon{
-                width: 20px;
-                height: 20px;
-                margin-right: 9px;
-            }
-
-            &:hover{
-                background-color: rgba(234, 65, 54, .2);
-            }
-        }
-    }
-
-    #products-item:hover > .products-menu{
-
-        @include lg{
-            height: 257px;
-            transition-delay: 0s;
-
-            &::before{
-                display: block;
-            }
-        }
-    }
-
-    #products-item:hover .products-menu__wrapper{
-
-        @include lg{
-            visibility: visible;
-            opacity: 1;
-            transition: all 1s ease-in-out;
-        }
-    }
-
-    .products-menu{
-        position: absolute;
-        background-color: $white;
-        left: 48px;
-        bottom: -14px;
-        transform: translateY(100%);
-        box-shadow: 0 10px 58px rgba(0, 0, 0, 0.08);
-        height: 0;
-        transition: height 0.5s ease-in-out;
-        transition-delay: .3s;
-
-        &__wrapper{
-            display: flex;
-            visibility: hidden;
-            opacity: 0;
-            padding: 24px 32px 20px 32px;
-            column-gap: 60px;
-            overflow: hidden;
-            transition: all .5s ease-in-out;
-        }
-
-        &::before {
-            background-color: $white;
-            content: "\00a0";
-            display: none;
-            height: 16px;
-            width: 16px;
-            position: absolute;
-            top: -7px;
-            left: 50px;
-            transform: rotate(47deg) skew(5deg);
-        }
-
-        &:hover{
-            display: flex;
-        }
-
-        &.active{
-            @include lg{
-                display: flex;
-            }
-        }
-
-        &__column{
-            display: flex;
-            flex-direction: column;
-            row-gap: 14px;
-
-            h4{
-                font-weight: 600;
-                font-size: 18px;
-                line-height: 28px;
-            }
-
-            ul{
-                display: flex;
-                flex-direction: column;
-                row-gap: 8px;
-
-                li{
+                &.contact{
                     display: flex;
                     align-items: center;
-                    width: max-content;
+                    width: calc(100% - 48px);
+                    background-color: $primary-text;
+                    color: $white;
+                    padding-left: 20px;
 
-                    & > a, & > span{
-                        font-size: 18px;
-                        line-height: 28px;
+                    @include sm{
+                        width: 156px;
+                        height: 48px;
+                        padding: 0;
+                        margin-left: auto;
+                        justify-content: center;
                     }
 
-                    & > a {
-                        color: $link;
-                        border-bottom: 1px solid $link;
-                        white-space: nowrap;
+                    @include md{
+                        width: 172px;
                     }
 
-                    & > span{
-                        color: $pressed;
-                        margin-left: 4px;
+                    & > a{
+                        display: flex;
+                        align-items: center;
+
+                        svg{
+                            margin-right: 8px;
+                        }
                     }
 
-                    & > img{
-                        width: 20px;
-                        height: 20px;
-                        object-fit: contain;
-                        margin-left: 4px;
+
+                }
+
+                &:first-child{
+                    @include sm{
+                        padding-left: 0!important;
                     }
                 }
-            }
-        }
 
-        &__more{
-            display: flex;
-            align-items: center;
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 20px;
-            color: $link;
+                &.no-border{
+                    border: none!important;
+                    padding-right: 0!important;
+                }
 
-            svg{
-                margin-left: 3px;
+                &.burger-button{
+                    @include sm{
+                        display: none;
+                    }
+                }
+
+                &:not(&.contact, &.burger-button){
+                    display: none;
+                    @include sm{
+                        display: block;
+                        padding: 0 24px;
+                        border-right: 2px solid #F3F3F4;
+                    }
+
+                    @include sm{
+
+                    }
+                }
+
+                & #burger-button{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    row-gap: 5px;
+                    padding: 16px 15px;
+                    width: 48px;
+                    height: 48px;
+                    background-color: $white;
+                    transition: all $hover-transition-length ease-in-out;
+
+                    & > span{
+                        width: 18px;
+                        height: 2px;
+                        background-color: $link;
+                        transition: all $hover-transition-length ease-in-out;
+
+                        &:nth-child(2){
+                            width: 12px;
+                        }
+                    }
+
+                    &.active{
+                        position: relative;
+                        background-color: $grey-low;
+
+                        & > span{
+                            position: absolute;
+                            top: 50%;
+                            background-color: $secondary-text;
+
+                            &:first-child{
+                                transform: rotate(45deg);
+                            }
+
+                            &:last-child{
+                                transform: rotate(-45deg);
+                            }
+
+                            &:nth-child(2){
+                                opacity: 0;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
