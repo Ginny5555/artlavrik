@@ -58,7 +58,25 @@ servicesSlider();
 
 // MENU
 const burgerButton = document.getElementById("burger-button");
-burgerButton.addEventListener("click", () => burgerButton.classList.toggle("active"));
+const burgerMenu = document.getElementById("burger-menu");
+
+const setBurgerMenuHeight = () => {
+    const mobileBreakpoint = window.matchMedia('(max-width: 767px)');
+    if (mobileBreakpoint.matches && burgerMenu.classList.contains("active")) {
+        const menuHeight = window.innerHeight - 48;
+        burgerMenu.style.height = `${menuHeight}px`;
+    } else {
+        burgerMenu.style.height = "0";
+    }
+}
+
+burgerButton.addEventListener("click", () => {
+    burgerButton.classList.toggle("active");
+    burgerMenu.classList.toggle("active");
+    document.querySelector("body").classList.toggle("noscroll");
+    setBurgerMenuHeight();
+});
+
 
 // TABS
 const tabs = document.querySelectorAll("[data-tab]");
@@ -93,3 +111,11 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll("[data-animation]").forEach(el => {
     observer.observe(el);
 });
+
+window.addEventListener('resize', function() {
+    setBurgerMenuHeight();
+});
+
+//DYNAMIC YEAR IN FOOTER
+document.querySelectorAll(".footer-rights span").forEach(item => item.innerHTML = new Date().getFullYear().toString());
+
