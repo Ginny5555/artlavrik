@@ -22,7 +22,6 @@
     "handlebars-loader": "^1.7.1",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.4.5",
-    "node-marquee": "^3.0.6",
     "postcss-loader": "^6.2.1",
     "sass": "^1.45.1",
     "sass-loader": "^12.4.0",

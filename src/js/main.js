@@ -1,5 +1,4 @@
 import Swiper, { Pagination } from 'swiper';
-import nodeMarquee from 'node-marquee';
 import 'animate.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -56,23 +55,6 @@ const servicesSlider = () => {
 
 servicesSliderBreakpoint.addListener(servicesSlider);
 servicesSlider();
-
-
-// MARQUEE
-const marqueeBreakpoint = window.matchMedia('(min-width: 960px)');
-const initMarquee = () => {
-    if (marqueeBreakpoint.matches){
-        nodeMarquee({
-            parent: '.desktop-logos__item.horizontal .wrapper'
-        });
-    } else{
-        nodeMarquee({
-            parent: '.mobile-runner__wrapper'
-        });
-    }
-}
-
-initMarquee();
 
 // MENU
 const burgerButton = document.getElementById("burger-button");
