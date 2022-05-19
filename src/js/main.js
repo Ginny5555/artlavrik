@@ -3,7 +3,7 @@ import 'animate.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-//import { elementScrollIntoView } from "seamless-scroll-polyfill";
+import { elementScrollIntoView } from "seamless-scroll-polyfill";
 
 
 // TEAM SLIDER
@@ -59,6 +59,7 @@ servicesSlider();
 // MENU
 const burgerButton = document.getElementById("burger-button");
 const burgerMenu = document.getElementById("burger-menu");
+const body = document.querySelector("body");
 
 const setBurgerMenuHeight = () => {
     const mobileBreakpoint = window.matchMedia('(max-width: 767px)');
@@ -73,9 +74,33 @@ const setBurgerMenuHeight = () => {
 burgerButton.addEventListener("click", () => {
     burgerButton.classList.toggle("active");
     burgerMenu.classList.toggle("active");
-    document.querySelector("body").classList.toggle("noscroll");
+    body.classList.toggle("noscroll");
     setBurgerMenuHeight();
 });
+
+//MENU SCROLLER
+const linkItems  = document.querySelectorAll(".burger-menu__item > a");
+linkItems.forEach(item => {
+    const className = item.getAttribute("data-scroll");
+    item.addEventListener("click", e => {
+        e.preventDefault();
+        body.classList.remove("noscroll");
+        burgerButton.classList.remove("active");
+        burgerMenu.classList.remove("active");
+        burgerMenu.style.height = "0";
+        setTimeout(() => elementScrollIntoView(document.querySelector(`.${className}`), { behavior: "smooth" }), 300 );
+    })
+})
+
+const headerLinks  = document.querySelectorAll("header .menu-item > a");
+headerLinks.forEach(item => {
+    const className = item.getAttribute("data-scroll");
+    item.addEventListener("click", e => {
+        e.preventDefault();
+        setTimeout(() => elementScrollIntoView(document.querySelector(`.${className}`), { behavior: "smooth" }), 300 );
+    })
+})
+
 
 
 // TABS
