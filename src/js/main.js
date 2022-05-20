@@ -32,12 +32,6 @@ const enableServicesSlider = () => {
         modules: [Pagination],
         slidesPerView: 'auto',
         spaceBetween: 9,
-        breakpoints: {
-            768: {
-                slidesPerView: 2,
-                spaceBetween: 20
-            }
-        },
         pagination: {
             el: '.services__wrapper .swiper-pagination',
         },
