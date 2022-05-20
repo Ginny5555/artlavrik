@@ -11,18 +11,16 @@
 
         @include sm{
             display: block;
-            position: absolute;
+            position: sticky;
             top: 0;
-            left: 0;
             width: 100%;
             height: auto;
-            z-index: -1;
+          //  z-index: 1;
         }
 
         @include xl{
             width: 1440px;
-            left: 50%;
-            transform: translateX(-50%);
+            margin: 0 auto;
         }
 
         img{
@@ -31,28 +29,33 @@
         }
     }
 
+    .container{
+        z-index: 1;
+    }
+
     &__title{
         position: relative;
         width: 335px;
         height: 225px;
         margin: 64px auto 0;
+        z-index: -1;
 
         @include sm{
             width: 520px;
             height: 150px;
-            margin: 172px auto 0;
+            margin: -200px auto 0;
         }
 
         @include md{
             width: 740px;
             height: 210px;
-            margin: 204px auto 0;
+            margin: -250px auto 0;
         }
 
         @include lg{
             width: 939px;
             height: 160px;
-            margin: 212px auto 0;
+            margin: -312px auto 0;
         }
 
         svg{
@@ -73,8 +76,8 @@
         height: 48px;
         margin: 45px auto 0;
         background-color: $grey-low;
-        z-index: 1;
         transition: all $hover-transition-length ease-in-out;
+        z-index: 1;
 
         @include sm{
             margin: 40px auto 0;
@@ -97,22 +100,21 @@
         justify-content: center;
         column-gap: 16px;
         row-gap: 16px;
-        margin-top: 64px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 64px auto 52px;
 
         @include sm{
-            margin-top: 124px;
+            margin: 70px auto;
             column-gap: 23px;
             row-gap: 32px;
         }
 
         @include md{
+            margin: 95px auto;
             column-gap: 32px;
         }
 
         @include lg{
-            margin-top: 132px;
+            margin: 105px auto;
         }
 
         .logo-item{
@@ -161,15 +163,6 @@
 }
 
 .products{
-    margin-top: 52px;
-
-    @include sm{
-        margin-top: 124px;
-    }
-
-    @include lg{
-        margin-top: 131px;
-    }
 
     &__wrapper{
         display: flex;
