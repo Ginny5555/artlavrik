@@ -54,6 +54,7 @@ servicesSlider();
 const burgerButton = document.getElementById("burger-button");
 const burgerMenu = document.getElementById("burger-menu");
 const body = document.querySelector("body");
+const header = document.querySelector("header");
 
 const setBurgerMenuHeight = () => {
     const mobileBreakpoint = window.matchMedia('(max-width: 767px)');
@@ -71,6 +72,26 @@ burgerButton.addEventListener("click", () => {
     body.classList.toggle("noscroll");
     setBurgerMenuHeight();
 });
+
+//HEADER SHOW-HIDE
+document.addEventListener("mousemove", (e) => {
+    const breakpoint = window.matchMedia('(min-width: 1280px)');
+    breakpoint.matches && e.clientY < 80 ? header.classList.add("hovered") : header.classList.remove("hovered");
+});
+
+let lastScrollTop = 0;
+
+document.addEventListener("scroll", function(){
+    let st = window.pageYOffset || document.documentElement.scrollTop;
+    if (st > lastScrollTop && st > 100){
+        header.classList.remove("visible")
+    } else {
+        if(st !== 0){
+            header.classList.add("visible")
+        }
+    }
+    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+}, false);
 
 //MENU SCROLLER
 const linkItems  = document.querySelectorAll(".burger-menu__item > a");
