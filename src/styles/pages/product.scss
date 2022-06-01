@@ -1,0 +1,132 @@
+.product{
+
+    .product-banner{
+
+        &__vector{
+            display: none;
+
+            @include sm{
+                display: block;
+                position: sticky;
+                top: 0;
+                width: 100%;
+                height: auto;
+            }
+
+            @include xl{
+                width: 1440px;
+                margin: 0 auto;
+            }
+
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        &__title{
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 36px;
+            text-align: center;
+            margin: 48px auto 36px;
+            max-width: 340px;
+
+            @include sm{
+                font-size: 36px;
+                line-height: 44px;
+                max-width: 520px;
+                margin: -260px auto 60px;
+            }
+
+            @include md{
+                max-width: 740px;
+                margin: -330px auto 48px;
+            }
+
+            @include lg{
+                font-size: 48px;
+                line-height: 60px;
+                max-width: 876px;
+                margin: -330px auto 50px;
+            }
+        }
+
+        &__image{
+            width: 345px;
+            height: 174px;
+            margin: 0 auto;
+
+            @include sm{
+                width: 700px;
+                height: 355px;
+            }
+
+            @include md{
+                width: 740px;
+                height: 376px;
+            }
+
+            @include lg{
+                width: 1170px;
+                height: 596px;
+            }
+        }
+    }
+
+    .product-about{
+
+        &__list{
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            grid-row-gap: 24px;
+
+            .product-about__item{
+                display: flex;
+                flex-direction: column;
+                row-gap: 4px;
+
+                h6{
+                    font-weight: 600;
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: $secondary-text;
+                }
+
+                p{
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+
+                &.link{
+
+                    h6{
+                        display: none;
+                    }
+
+                    a{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        height: 40px;
+                        background-color: $grey-beach;
+                        color: $white;
+                        font-weight: 600;
+                        font-size: 16px;
+                        line-height: 24px;
+
+                        svg{
+                            margin-left: 4px;
+
+                            path{
+                                fill: $white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

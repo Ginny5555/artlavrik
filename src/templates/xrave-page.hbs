@@ -1,0 +1,66 @@
+{{#[helpers/layout] htmlWebpackPlugin}}
+
+    <section class="product-banner">
+        <div class="product-banner__vector">
+            <picture>
+                <source srcset="images/banner/vector-lg.svg" media="(min-width: 1280px)">
+                <source srcset="images/banner/vector-md.svg" media="(min-width: 960px)">
+                <img src="images/banner/vector-sm.svg" alt="Product">
+            </picture>
+        </div>
+        <h1 class="product-banner__title">Online banking + cryptocurrency exchange</h1>
+        <div class="product-banner__image">
+            <picture>
+                <source srcset="images/xrave/banner-lg.png" media="(min-width: 1280px)">
+                <source srcset="images/xrave/banner-md.png" media="(min-width: 960px)">
+                <source srcset="images/xrave/banner-sm.png" media="(min-width: 768px)">
+                <img src="images/xrave/banner-mob.png" alt="Product banner">
+            </picture>
+        </div>
+    </section>
+    <section class="product-about">
+        <div class="container">
+            <ul class="product-about__list">
+                <li class="product-about__item">
+                    <h6 class="font-titanium">Client</h6>
+                    <p class="font-titanium">XRave - Cryptocurrency exchange</p>
+                </li>
+                <li class="product-about__item">
+                    <h6 class="font-titanium">Our Role</h6>
+                    <p class="font-titanium">Research, User Flow Mapping, Information Architecture, UX Design, UI Design, Interactive Prototypes, Usability Testing</p>
+                </li>
+                <li class="product-about__item link">
+                    <h6 class="font-titanium">Interested?</h6>
+                    <a class="font-titanium" href="#">
+                        Try Xrave
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.9768 10.0001L6.85181 5.87511L8.03014 4.69678L13.3335 10.0001L8.03014 15.3034L6.85181 14.1251L10.9768 10.0001Z" fill="#EA4136"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+            <div class="product-about__slider">
+                <div class="swiper">
+                    <div class="swiper-container">
+                        <div class="swiper-slide">
+                            <h6>About product</h6>
+                            <p class="font-titanium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum aliquam malesuada diam etiam. Luctus justo, nulla et pellentesque vitae ultricies at tincidunt. Quis cursus enim quisque nunc. Commodo tincidunt neque vel porta. Leo vulputate quis in quam quis. Urna maecenas nibh aenean enim.rit tempor.</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <h6>Context</h6>
+                            <p class="font-titanium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum aliquam malesuada diam etiam. Luctus justo, nulla et pellentesque vitae ultricies at tincidunt. Quis cursus enim quisque nunc. Commodo tincidunt neque vel porta. Leo vulputate quis in quam quis. Urna maecenas nibh aenean enim.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+{{>partials/contacts.hbs}}
+    <script type="application/javascript">
+        document.querySelector("body").classList.add("product", "xrave");
+    </script>
+
+{{/[helpers/layout]}}

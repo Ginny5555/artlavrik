@@ -121,7 +121,7 @@ headerLinks.forEach(item => {
 // TABS
 const tabs = document.querySelectorAll("[data-tab]");
 const panes = document.querySelectorAll("[data-pane]");
-const active = document.querySelector("[data-tab].active").getAttribute("data-tab");
+const active = document.querySelector("[data-tab].active")?.getAttribute("data-tab");
 
 panes.forEach(pane => {
     if(pane.getAttribute("data-pane") === active){
@@ -158,4 +158,27 @@ window.addEventListener('resize', function() {
 
 //DYNAMIC YEAR IN FOOTER
 document.querySelectorAll(".footer-rights span").forEach(item => item.innerHTML = new Date().getFullYear().toString());
+
+
+
+
+//PRODUCT PAGE
+
+// TEAM SLIDER
+new Swiper(".product-about__slider .swiper", {
+    modules: [Pagination],
+    slidesPerView: 'auto',
+    spaceBetween: 9,
+    breakpoints: {
+        768: {
+            spaceBetween: 20
+        },
+        1280: {
+            spaceBetween: 30
+        },
+    },
+    pagination: {
+        el: '.product-about__slider .swiper-pagination',
+    },
+})
 

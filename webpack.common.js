@@ -87,10 +87,10 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
-            title: "Team",
-            page: "team",
-            template: 'src/templates/team.hbs',
-            filename: 'team.html',
+            title: "XRave",
+            page: "xrave",
+            template: 'src/templates/xrave-page.hbs',
+            filename: 'xrave-page.html',
             inject: 'body',
             hash: false
         }),
