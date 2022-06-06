@@ -179,14 +179,14 @@
                         }
 
                         @include sm {
-                            color: #EA4136;
+                            color: $link;
                             height: auto;
                             justify-content: start;
                             background-color: inherit;
 
                             svg {
                                 path{
-                                    fill: #EA4136;
+                                    fill: $link;
                                 }
                             }
                         }
@@ -218,7 +218,7 @@
                 font-size: 16px;
                 line-height: 24px;
                 letter-spacing: 0.01em;
-                color: #9AA2AC;
+                color: $secondary-text;
                 margin-top: 16px;
             }
 
@@ -269,7 +269,7 @@
             font-weight: 600;
             font-size: 24px;
             line-height: 36px;
-            color: #202831;
+            color: $primary-text;
             width: 100%;
 
             @include md {
@@ -283,7 +283,7 @@
             font-weight: 600;
             font-size: 18px;
             line-height: 28px;
-            color: #9AA2AC;
+            color: $secondary-text;
 
             @include sm {
                 font-size: 24px;
@@ -296,7 +296,7 @@
 
             &.underline {
                 padding-bottom: 8px;
-                border-bottom: 1px solid #CBD3DD;
+                border-bottom: 1px solid $grey-beach;
 
                 @include sm {
                     padding-bottom: 12px;
@@ -386,7 +386,7 @@
 
                         p {
                             padding: 0 24px;
-                            border-right: 1px solid #CBD3DD;
+                            border-right: 1px solid $grey-beach;
                             font-weight: 400;
                             font-size: 18px;
                             line-height: 36px;
@@ -474,7 +474,7 @@
                         font-weight: 600;
                         font-size: 18px;
                         line-height: 28px;
-                        color: #202831;
+                        color: $primary-text;
                     }
 
                     .hex {
@@ -482,7 +482,7 @@
                         font-weight: 400;
                         font-size: 16px;
                         line-height: 24px;
-                        color: #9AA2AC;
+                        color: $secondary-text;
 
                         @include sm {
                             font-size: 18px;
@@ -510,7 +510,7 @@
             font-weight: 600;
             font-size: 24px;
             line-height: 36px;
-            color: #202831;
+            color: $primary-text;
 
             @include md {
                 font-size: 36px;
@@ -556,7 +556,7 @@
                 font-weight: 600;
                 font-size: 24px;
                 line-height: 36px;
-                color: #202831;
+                color: $primary-text;
 
                 @include sm {
                     font-size: 18px;
@@ -706,7 +706,7 @@
             font-weight: 600;
             font-size: 24px;
             line-height: 36px;
-            color: #202831;
+            color: $primary-text;
 
             @include md {
                 font-size: 36px;
@@ -731,7 +731,7 @@
                 font-weight: 600;
                 font-size: 18px;
                 line-height: 28px;
-                color: #202831;
+                color: $primary-text;
             }
 
             ul {
@@ -741,7 +741,7 @@
                     font-weight: 400;
                     font-size: 16px;
                     line-height: 24px;
-                    color: #9AA2AC;
+                    color: $secondary-text;
                     display: flex;
                     column-gap: 8px;
                     margin-left: 8px;
@@ -752,7 +752,7 @@
                         width: 6px;
                         height: 6px;
                         min-width: 6px;
-                        background-color: #9AA2AC;
+                        background-color: $secondary-text;
                         bottom: 2px;
                         position: relative;
                     }
@@ -792,7 +792,7 @@
                     display: flex;
                     column-gap: 24px;
                     padding: 24px;
-                    background-color: #fff;
+                    background-color: $white;
                     height: auto;
 
                     @include sm {
@@ -871,7 +871,7 @@
                 font-weight: 600;
                 font-size: 24px;
                 line-height: 36px;
-                color: #202831;
+                color: $primary-text;
 
                 @include lg {
                     font-size: 36px;
@@ -883,12 +883,12 @@
                 display: none;
                 padding: 0 16px;
                 height: 36px;
-                background: #EA4136;
+                background: $link;
                 font-weight: 600;
                 font-size: 14px;
                 line-height: 20px;
                 text-align: center;
-                color: #FFFFFF;
+                color: $white;
 
                 @include sm {
                     display: block;
@@ -910,7 +910,7 @@
             .swiper {
                 &-slide {
                     padding: 24px;
-                    background-color: #fff;
+                    background-color: $white;
 
                     @include sm {
                         max-width: 340px;
@@ -939,7 +939,7 @@
                         font-weight: 600;
                         font-size: 18px;
                         line-height: 28px;
-                        color: #202831;
+                        color: $primary-text;
                     }
 
                     .about {
@@ -981,7 +981,7 @@
         &__cjm {
             margin-top: 24px;
             padding: 20px;
-            background-color: #fff;
+            background-color: $white;
 
             @include sm {
                 margin-top: 0;
@@ -998,7 +998,7 @@
                 font-weight: 600;
                 font-size: 18px;
                 line-height: 28px;
-                color: #202831;
+                color: $primary-text;
             }
 
             .font-titanium {
@@ -1006,7 +1006,7 @@
                 font-weight: 600;
                 font-size: 14px;
                 line-height: 20px;
-                color: #9AA2AC;
+                color: $secondary-text;
             }
 
             img {
@@ -1026,12 +1026,12 @@
             margin-top: 36px;
             width: 100%;
             padding: 8px 0;
-            background-color: #EA4136;
+            background-color: $link;
             font-weight: 600;
             font-size: 14px;
             line-height: 20px;
             text-align: center;
-            color: #FFFFFF;
+            color: $white;
 
             @include sm {
                 display: none;
@@ -1058,7 +1058,7 @@
             font-weight: 600;
             font-size: 24px;
             line-height: 36px;
-            color: #202831;
+            color: $primary-text;
 
             @include md {
                 font-size: 36px;
@@ -1099,7 +1099,7 @@
                         font-weight: 600;
                         font-size: 18px;
                         line-height: 28px;
-                        color: #202831;
+                        color: $primary-text;
                         text-align: center;
                     }
 
@@ -1108,7 +1108,7 @@
                         font-weight: 400;
                         font-size: 16px;
                         line-height: 24px;
-                        color: #9AA2AC;
+                        color: $secondary-text;
                     }
                 }
 
@@ -1322,7 +1322,7 @@
                         font-weight: 600;
                         font-size: 18px;
                         line-height: 28px;
-                        color: #202831;
+                        color: $primary-text;
 
                         @include lg {
                             font-size: 24px;
@@ -1335,7 +1335,7 @@
                         font-weight: 400;
                         font-size: 16px;
                         line-height: 24px;
-                        color: #202831;
+                        color: $primary-text;
 
                         @include lg {
                             font-size: 18px;
@@ -1356,7 +1356,7 @@
                             left: -15px;
                             width: calc(100% + 30px);
                             height: 200%;
-                            background-color: #E5E9EE;
+                            background-color: $grey-low;
                             transform: skewY(7deg);
                             transform-origin: right top;
                             z-index: -1;
@@ -1381,7 +1381,7 @@
                                 left: -15px;
                                 width: calc(100% + 30px);
                                 height: 200%;
-                                background-color: #E5E9EE;
+                                background-color: $grey-low;
                                 transform: skewY(8deg);
                                 transform-origin: right top;
                                 z-index: -1;
@@ -1538,7 +1538,7 @@
 
                         h4,
                         .font-titanium{
-                            color: #FFFFFF;
+                            color: $white;
                         }
                     }
                 }
@@ -1548,7 +1548,7 @@
 
     .product-result {
         margin-top: 80px;
-        background: #E5E9EE;
+        background: $grey-low;
         padding: 48px 0;
 
         @include sm {
@@ -1581,7 +1581,7 @@
             font-weight: 600;
             font-size: 24px;
             line-height: 36px;
-            color: #202831;
+            color: $primary-text;
             width: 100%;
 
             @include md {
@@ -1611,13 +1611,13 @@
                     font-weight: 600;
                     font-size: 96px;
                     line-height: 100%;
-                    color: #202831;
+                    color: $primary-text;
                 }
                 .caption {
                     font-weight: 600;
                     font-size: 24px;
                     line-height: 36px;
-                    color: #9AA2AC;
+                    color: $secondary-text;
                 }
             }
         }
@@ -1660,7 +1660,7 @@
                     font-weight: 400;
                     font-size: 18px;
                     line-height: 28px;
-                    color: #202831;
+                    color: $primary-text;
                 }
             }
         }
@@ -1696,7 +1696,7 @@
                     font-weight: 400;
                     font-size: 18px;
                     line-height: 28px;
-                    color: #9AA2AC;
+                    color: $secondary-text;
                 }
 
                 .caption {
@@ -1704,7 +1704,7 @@
                     font-weight: 600;
                     font-size: 18px;
                     line-height: 28px;
-                    color: #202831;
+                    color: $primary-text;
                 }
             }
         }
