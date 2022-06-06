@@ -191,7 +191,7 @@ const aboutSlider = () => {
         if(aboutSliderInstance !== undefined) aboutSliderInstance.destroy(true, true);
         return;
     } else if(!aboutSliderBreakpoint.matches){
-        return enableResearchSlider();
+        return enableAboutSlider();
     }
 }
 
