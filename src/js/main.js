@@ -216,8 +216,9 @@ const enableResearchSlider = () => {
 }
 
 const researchSlider = () => {
-    if(servicesSliderBreakpoint.matches){
+    if(researchSliderBreakpoint.matches){
         if(researchSliderInstance !== undefined) researchSliderInstance.destroy(true, true);
+        console.log(true)
         return;
     } else if(!researchSliderBreakpoint.matches){
         return enableResearchSlider();
