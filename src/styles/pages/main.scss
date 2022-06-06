@@ -11,16 +11,17 @@
 
         @include sm{
             display: block;
-            position: sticky;
+            position: absolute;
             top: 0;
+            left: 0;
             width: 100%;
             height: auto;
-          //  z-index: 1;
         }
 
         @include xl{
             width: 1440px;
-            margin: 0 auto;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         img{
@@ -38,24 +39,23 @@
         width: 335px;
         height: 225px;
         margin: 64px auto 0;
-        z-index: -1;
 
         @include sm{
             width: 520px;
             height: 150px;
-            margin: -200px auto 0;
+            margin: 172px auto 0;
         }
 
         @include md{
             width: 740px;
             height: 210px;
-            margin: -250px auto 0;
+            margin: 204px auto 0;
         }
 
         @include lg{
             width: 939px;
             height: 160px;
-            margin: -312px auto 0;
+            margin: 212px auto 0;
         }
 
         svg{
