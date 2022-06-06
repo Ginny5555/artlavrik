@@ -1,8 +1,8 @@
-import Swiper, { Pagination } from 'swiper';
+import Swiper, { Pagination, Grid} from 'swiper';
 import 'animate.css';
 import 'swiper/css';
-import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/grid';
 import { elementScrollIntoView } from "seamless-scroll-polyfill";
 
 
@@ -164,21 +164,98 @@ document.querySelectorAll(".footer-rights span").forEach(item => item.innerHTML 
 
 //PRODUCT PAGE
 
-// TEAM SLIDER
-new Swiper(".product-about__slider .swiper", {
-    modules: [Pagination],
-    slidesPerView: 'auto',
-    spaceBetween: 9,
+// ABOUT SLIDER
+const aboutSliderBreakpoint = window.matchMedia('(min-width: 768px)');
+let aboutSliderInstance;
+const enableAboutSlider = () => {
+    aboutSliderInstance = new Swiper(".product-about__slider .swiper", {
+        modules: [Pagination],
+        slidesPerView: 'auto',
+        spaceBetween: 9,
+        breakpoints: {
+            768: {
+                spaceBetween: 20
+            },
+            1280: {
+                spaceBetween: 30
+            },
+        },
+        pagination: {
+            el: '.product-about__slider .swiper-pagination',
+        },
+    })
+}
+
+const aboutSlider = () => {
+    if(aboutSliderBreakpoint.matches){
+        if(aboutSliderInstance !== undefined) aboutSliderInstance.destroy(true, true);
+        return;
+    } else if(!aboutSliderBreakpoint.matches){
+        return enableResearchSlider();
+    }
+}
+
+aboutSliderBreakpoint.addListener(aboutSlider);
+aboutSlider();
+
+//RESEARCH SLIDER
+const researchSliderBreakpoint = window.matchMedia('(min-width: 768px)');
+let researchSliderInstance;
+const enableResearchSlider = () => {
+    researchSliderInstance = new Swiper(".product-research__slider .swiper", {
+        modules: [Pagination, Grid],
+        slidesPerView: 1,
+        grid: {
+            rows: 3,
+        },
+        spaceBetween: 16,
+        pagination: {
+            el: '.product-research__slider .swiper-pagination',
+        },
+    })
+}
+
+const researchSlider = () => {
+    if(servicesSliderBreakpoint.matches){
+        if(researchSliderInstance !== undefined) researchSliderInstance.destroy(true, true);
+        return;
+    } else if(!researchSliderBreakpoint.matches){
+        return enableResearchSlider();
+    }
+}
+
+researchSliderBreakpoint.addListener(researchSlider);
+researchSlider();
+
+//TEAM SLIDER
+const productTeamSlider = new Swiper(".product-team__slider .swiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
     breakpoints: {
         768: {
-            spaceBetween: 20
+            slidesPerView: 'auto'
         },
         1280: {
             spaceBetween: 30
         },
     },
-    pagination: {
-        el: '.product-about__slider .swiper-pagination',
-    },
 })
 
+//DESIGN SLIDER
+const designSlider = new Swiper(".product-design__slider .swiper", {
+    modules: [Pagination],
+    slidesPerView: 1,
+    spaceBetween: 20,
+    breakpoints: {
+        768: {
+            slidesPerView: 'auto'
+        },
+        1280: {
+            slidesPerView: 'auto',
+            spaceBetween: 30
+        },
+    },
+    pagination: {
+        el: '.product-design__slider .swiper-pagination',
+    },
+})
