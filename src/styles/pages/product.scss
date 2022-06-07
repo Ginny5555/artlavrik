@@ -1,21 +1,25 @@
 .product{
 
     .product-banner{
+        display: flex;
+        flex-direction: column;
 
         &__vector{
             display: none;
 
             @include sm{
                 display: block;
-                position: sticky;
+                position: absolute;
                 top: 0;
+                left: 0;
                 width: 100%;
                 height: auto;
             }
 
             @include xl{
                 width: 1440px;
-                margin: 0 auto;
+                left: 50%;
+                transform: translateX(-50%);
             }
 
             img{
@@ -36,19 +40,19 @@
                 font-size: 36px;
                 line-height: 44px;
                 max-width: 520px;
-                margin: -260px auto 60px;
+                margin: 172px auto 60px;
             }
 
             @include md{
                 max-width: 740px;
-                margin: -330px auto 48px;
+                margin: 204px auto 48px;
             }
 
             @include lg{
                 font-size: 48px;
                 line-height: 60px;
                 max-width: 876px;
-                margin: -330px auto 50px;
+                margin: 212px auto 50px;
             }
         }
 

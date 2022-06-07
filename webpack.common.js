@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+const WebpackFavicons = require("webpack-favicons");
 const bundleFolder = 'dist';
 
 module.exports = {
@@ -104,6 +105,16 @@ module.exports = {
                     },
                 }
             ]
+        }),
+
+        new WebpackFavicons({
+            src: 'src/images/logo.svg',
+            path: 'images/favicons',
+            icons: {
+                favicons: true,
+                appleIcon: true,
+                android: true
+            }
         })
     ]
 }
