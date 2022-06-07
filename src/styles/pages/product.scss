@@ -949,17 +949,56 @@
                     }
 
                     .about {
-                        width: 100%;
                         margin-top: 24px;
-                        height: 104px;
-                        object-fit: cover;
+                        display: flex;
+                        flex-flow: wrap;
+                        gap: 16px;
+                        filter: blur(6px);
+
+                        .title {
+                            width: 100%;
+                            font-weight: 600;
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #202831;
+                        }
+
+                        .item {
+                            width: calc((100% - 16px) / 2);
+                            display: flex;
+                            align-items: center;
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #202831;
+
+                            svg {
+                                width: 24px;
+                                height: 24px;
+                                min-width: 24px;
+                                margin-right: 8px;
+                            }
+                        }
                     }
 
                     .bio {
                         margin-top: 24px;
-                        width: 100%;
-                        height: 112px;
-                        object-fit: cover;
+                        filter: blur(6px);
+
+                        .title {
+                            font-weight: 600;
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #202831;
+                        }
+
+                        .caption {
+                            margin-top: 8px;
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 20px;
+                            color: #9AA2AC;
+                        }
                     }
 
                     picture {
