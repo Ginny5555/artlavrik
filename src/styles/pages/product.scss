@@ -247,6 +247,10 @@
                 &-pagination {
                     position: static;
                     margin-top: 8px;
+
+                    @include sm {
+                        display: none;
+                    }
                 }
             }
         }
@@ -922,6 +926,13 @@
                     padding: 24px;
                     background-color: $white;
 
+                    &:not(:first-child) {
+                        .about,
+                        .bio {
+                            filter: blur(6px);
+                        }
+                    }
+
                     @include sm {
                         max-width: 340px;
                         margin-bottom: 92px;
@@ -957,7 +968,6 @@
                         display: flex;
                         flex-flow: wrap;
                         gap: 16px;
-                        filter: blur(6px);
 
                         .title {
                             width: 100%;
@@ -987,7 +997,6 @@
 
                     .bio {
                         margin-top: 24px;
-                        filter: blur(6px);
 
                         .title {
                             font-weight: 600;
@@ -1809,12 +1818,7 @@
 
             .product {
                 display: block!important;
-
-                &__explore {
-                    display: none;
-                }
             }
-
         }
     }
 }
