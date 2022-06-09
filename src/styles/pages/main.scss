@@ -282,6 +282,19 @@
                     left: 50%;
                     transform: translateX(-50%);
                 }
+
+                &.soon {
+                    svg path{
+                        fill: $link;
+                    }
+
+                    &.link-secondary{
+                        svg path{
+                            stroke: none;
+                            fill: $grey-beach;
+                        }
+                    }
+                }
             }
 
             &__adaptive{
@@ -369,6 +382,15 @@
                             stroke: $grey-beach;
                         }
                     }
+
+                    &.soon {
+                        svg path{
+                            @include sm{
+                                stroke: none;
+                                fill: $grey-beach;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -389,6 +411,21 @@
 
                 @include lg{
                     top: -335px;
+                }
+            }
+
+            &.disabled {
+                a.product__explore {
+                    display: none;
+                }
+                .soon {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .product__link {
+                    cursor: default;
+                    pointer-events: none;
                 }
             }
         }
