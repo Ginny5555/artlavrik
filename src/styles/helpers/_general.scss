@@ -114,3 +114,36 @@ picture{
 		max-width: 1170px;
 	}
 }
+
+.popup {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(32, 40, 49, 0.5);
+    backdrop-filter: blur(15px);
+    display: none;
+
+    &.opened {
+        display: block;
+    }
+
+    .content {
+        position: absolute;
+        background-color: #FFFFFF;
+        box-shadow: 0px 10px 58px rgba(0, 0, 0, 0.08);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        @include md {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-height: calc(100vh - 120px);
+        }
+    }
+}

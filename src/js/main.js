@@ -112,11 +112,94 @@ headerLinks.forEach(item => {
     const className = item.getAttribute("data-scroll");
     item.addEventListener("click", e => {
         e.preventDefault();
-        setTimeout(() => elementScrollIntoView(document.querySelector(`.${className}`), { behavior: "smooth" }), 300 );
+        if (!className === "contacts") {
+            setTimeout(() => elementScrollIntoView(document.querySelector(`.${className}`), { behavior: "smooth" }), 300 );
+        } else {
+            contactForm.classList.add('opened');
+            body.classList.add("noscroll");
+        }
+
     })
 })
 
+//CONTACT FORM
+const  contactForm = document.getElementsByClassName('popup')[0];
+const closeForm = contactForm.querySelector('[data-role="close"]');
+closeForm.onclick = () => {
+    contactForm.classList.remove('opened')
+    body.classList.remove("noscroll");
+}
 
+contactForm.querySelector('input[type="file"]').addEventListener('change', () => {
+    var file = event.target.files[0].name;
+    event.currentTarget.nextSibling.nextSibling.innerHTML = file
+})
+
+//dropdown list
+var checkList = document.getElementsByClassName('dropdown')[0];
+checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
+    if (checkList.classList.contains('visible'))
+        checkList.classList.remove('visible');
+    else
+        checkList.classList.add('visible');
+}
+
+//control list
+checkList.addEventListener('change', function () {
+    var chk = event.target
+
+    if (chk.tagName === 'INPUT' && chk.type === 'checkbox') {
+        if (chk.checked){
+            chk.parentElement.parentElement.classList.add('active');
+        } else {
+            chk.parentElement.parentElement.classList.remove('active');
+        }
+    }
+})
+
+//submitting form
+/*contactForm.querySelector('form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    console.log( new FormData(contactForm.querySelector('form')))
+
+    /!*let name = "sadfasdf";
+    let email = "sadfasdf";
+    let mess = "sadfasdf";
+    let file = "sadfasdf";
+
+    fetch("contact-form.php"+ "?" + "name=" + name + "&email=" + email + "&message=" + mess + "&file=" + file,
+        {
+            method: "GET",
+            headers:{"content-type":"application/x-www-form-urlencoded"}
+        })
+
+        .then( response => {
+            if (response.status !== 200) {
+
+                return Promise.reject();
+            }
+            return response.text()
+        })
+        .then(function () {
+            /!*e.target.parentElement.classList.add("hide");
+            e.target.parentElement.nextSibling.nextSibling.classList.remove('hide');*!/
+            console.log(event)
+        })
+        .catch(() => console.log('ошибка'));*!/
+})*/
+
+contactForm.querySelector('form').onsubmit = async (e) => {
+    e.preventDefault();
+
+    let response = await fetch('/contact-form.php', {
+        method: 'POST',
+        body: new FormData(contactForm.querySelector('form'))
+    });
+
+    let result = await response.json();
+
+    alert(result.message);
+};
 
 // TABS
 const tabs = document.querySelectorAll("[data-tab]");
@@ -218,7 +301,6 @@ const enableResearchSlider = () => {
 const researchSlider = () => {
     if(researchSliderBreakpoint.matches){
         if(researchSliderInstance !== undefined) researchSliderInstance.destroy(true, true);
-        console.log(true)
         return;
     } else if(!researchSliderBreakpoint.matches){
         return enableResearchSlider();
