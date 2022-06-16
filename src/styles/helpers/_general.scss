@@ -116,7 +116,7 @@ picture{
 }
 
 .popup {
-    position: absolute;
+    position: fixed;
     z-index: 100;
     top: 0;
     left: 0;
@@ -137,6 +137,7 @@ picture{
         top: 0;
         left: 0;
         width: 100%;
+        overflow: auto;
         height: 100%;
 
         @include md {
@@ -144,6 +145,7 @@ picture{
             left: 50%;
             transform: translate(-50%, -50%);
             max-height: calc(100vh - 120px);
+            height: auto;
         }
     }
 }

@@ -712,6 +712,12 @@
             overflow: hidden;
             background-color: $white;
 
+            &:hover {
+                .service-card__link {
+                    opacity: 1;
+                }
+            }
+
             @include md{
                 width: 100%;
                 height: 291px;
@@ -816,7 +822,8 @@
                 font-size: 16px;
                 line-height: 24px;
                 color: $link;
-                transition: color $hover-transition-length ease-in-out;
+                transition: all $hover-transition-length ease-in-out;
+                opacity: 0;
 
                 svg{
                     margin-left: 4px;
@@ -842,6 +849,15 @@
                 font-size: 16px;
                 line-height: 24px;
                 color: $grey-beach;
+            }
+
+            &__fullLink {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 10;
             }
 
 
@@ -1978,7 +1994,7 @@
         }
 
         &-form {
-            padding: 24px 15px;
+            padding: 24px 15px 0;
             display: flex;
             flex-flow: column;
             height: 100%;
@@ -2186,15 +2202,19 @@
             textarea {
                 height: 140px;
                 resize: none;
+                margin-bottom: 24px;
+                min-height: 140px;
             }
 
             .buttons {
                 display: flex;
                 justify-content: space-between;
                 margin-top: auto;
+                padding-bottom: 24px;
 
                 @include md {
                     margin-top: 44px;
+                    padding-bottom: 0;
                 }
 
                 .submit,
@@ -2235,9 +2255,9 @@
         }
 
         &-dialog {
-            height: 100%;
             flex-flow: column;
             display: flex;
+            height: 100%;
 
             &.hide {
                 display: none;
@@ -2251,6 +2271,7 @@
             justify-content: center;
             flex-flow: column;
             display: flex;
+            min-height: 400px;
 
             @include md {
                 max-width: 570px;

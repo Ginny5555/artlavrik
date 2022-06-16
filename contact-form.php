@@ -1,5 +1,5 @@
 ﻿<?php
-$to = 'mikrolab007@gmail.com';
+$to = 'cooperation@artlavrik.com';
 $desired = '';
 if ( !empty( $_POST['NativeApp'] ) ) {
 	$desired  .= "Native app ";

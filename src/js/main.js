@@ -112,14 +112,20 @@ headerLinks.forEach(item => {
     const className = item.getAttribute("data-scroll");
     item.addEventListener("click", e => {
         e.preventDefault();
-        if (!className === "contacts") {
-            setTimeout(() => elementScrollIntoView(document.querySelector(`.${className}`), { behavior: "smooth" }), 300 );
-        } else {
+        if (className == "contacts") {
             contactForm.classList.add('opened');
             body.classList.add("noscroll");
+        } else {
+            setTimeout(() => elementScrollIntoView(document.querySelector(`.${className}`), { behavior: "smooth" }), 300 );
         }
 
     })
+})
+
+const mainBannerLink = document.querySelector('a[data-role="portfolio"]');
+mainBannerLink.addEventListener("click", e => {
+    e.preventDefault();
+    setTimeout(() => elementScrollIntoView(document.querySelector('.products'), { behavior: "smooth" }), 300 );
 })
 
 //CONTACT FORM
@@ -157,37 +163,6 @@ checkList.addEventListener('change', function () {
     }
 })
 
-//submitting form
-/*contactForm.querySelector('form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    console.log( new FormData(contactForm.querySelector('form')))
-
-    /!*let name = "sadfasdf";
-    let email = "sadfasdf";
-    let mess = "sadfasdf";
-    let file = "sadfasdf";
-
-    fetch("contact-form.php"+ "?" + "name=" + name + "&email=" + email + "&message=" + mess + "&file=" + file,
-        {
-            method: "GET",
-            headers:{"content-type":"application/x-www-form-urlencoded"}
-        })
-
-        .then( response => {
-            if (response.status !== 200) {
-
-                return Promise.reject();
-            }
-            return response.text()
-        })
-        .then(function () {
-            /!*e.target.parentElement.classList.add("hide");
-            e.target.parentElement.nextSibling.nextSibling.classList.remove('hide');*!/
-            console.log(event)
-        })
-        .catch(() => console.log('ошибка'));*!/
-})*/
-
 contactForm.querySelector('form').onsubmit = async (e) => {
     e.preventDefault();
 
@@ -195,10 +170,12 @@ contactForm.querySelector('form').onsubmit = async (e) => {
         method: 'POST',
         body: new FormData(contactForm.querySelector('form'))
     });
-
-    let result = await response.json();
-
-    alert(result.message);
+    if (response.ok) {
+        e.target.parentElement.classList.add("hide");
+        e.target.parentElement.nextSibling.classList.remove('hide');
+    } else {
+        alert("Error, please try again")
+    }
 };
 
 // TABS
