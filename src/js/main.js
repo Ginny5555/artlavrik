@@ -123,10 +123,12 @@ headerLinks.forEach(item => {
 })
 
 const mainBannerLink = document.querySelector('a[data-role="portfolio"]');
-mainBannerLink.addEventListener("click", e => {
-    e.preventDefault();
-    setTimeout(() => elementScrollIntoView(document.querySelector('.products'), { behavior: "smooth" }), 300 );
-})
+if (mainBannerLink) {
+    mainBannerLink.addEventListener("click", e => {
+        e.preventDefault();
+        setTimeout(() => elementScrollIntoView(document.querySelector('.products'), { behavior: "smooth" }), 300 );
+    })
+}
 
 //CONTACT FORM
 const  contactForm = document.getElementsByClassName('popup')[0];

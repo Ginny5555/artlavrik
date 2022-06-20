@@ -100,21 +100,21 @@
         justify-content: center;
         column-gap: 16px;
         row-gap: 16px;
-        margin: 64px auto 52px;
+        margin: 64px auto 0;
 
         @include sm{
-            margin: 70px auto;
+            margin: 70px auto 0;
             column-gap: 23px;
             row-gap: 32px;
         }
 
         @include md{
-            margin: 95px auto;
+            margin: 95px auto 0;
             column-gap: 32px;
         }
 
         @include lg{
-            margin: 105px auto;
+            margin: 105px auto 0;
         }
 
         .logo-item{
@@ -163,6 +163,19 @@
 }
 
 .products{
+    padding-top: 52px;
+
+    @include sm{
+        padding-top: 70px;
+    }
+
+    @include md{
+        padding-top: 95px;
+    }
+
+    @include lg{
+        padding-top: 105px;
+    }
 
     &__wrapper{
         display: flex;
@@ -464,14 +477,14 @@
 }
 
 .services{
-    margin-top: 124px;
+    padding-top: 124px;
 
     @include sm{
-        margin-top: 105px;
+        padding-top: 105px;
     }
 
     @include lg{
-        margin-top: 120px;
+        padding-top: 120px;
     }
 
     &__wrapper{
@@ -1990,6 +2003,12 @@
                 min-width: 24px;
                 cursor: pointer;
                 margin-left: auto;
+
+                &:hover {
+                    path {
+                        fill: #202831;
+                    }
+                }
             }
         }
 

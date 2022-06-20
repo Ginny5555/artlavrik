@@ -96,6 +96,15 @@ module.exports = {
             hash: false
         }),
 
+        new HtmlWebpackPlugin({
+            title: "StreamBet",
+            page: "streambet",
+            template: 'src/templates/streambet-page.hbs',
+            filename: 'streambet-page.html',
+            inject: 'body',
+            hash: false
+        }),
+
         new CopyPlugin({
             patterns: [
                 {
