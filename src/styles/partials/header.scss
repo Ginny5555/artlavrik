@@ -70,22 +70,11 @@
                     }
                 }
 
-                &:hover{
-
-                    & > a{
-                        color: $link;
-
-                        svg path{
-                            fill: $link;
-                        }
-                    }
-                }
-
                 &.contact{
                     display: flex;
                     align-items: center;
                     width: calc(100% - 48px);
-                    background-color: $primary-text;
+                    background-color: #EF7168;
                     color: $white;
                     padding-left: 20px;
 
@@ -99,6 +88,10 @@
 
                     @include md{
                         width: 172px;
+                    }
+
+                    &:hover{
+                        background-color: #C41F14;
                     }
 
                     & > a{

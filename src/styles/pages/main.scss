@@ -1599,36 +1599,6 @@
                     width: 270px;
                 }
 
-                &:nth-child(even){
-
-                    .card-item{
-
-                        .border-left{
-                            top: unset;
-                            bottom: 80px;
-                            transform: skewY(-45deg);
-
-                            @include lg{
-                                top: 80px;
-                                bottom: unset;
-                                transform: skewY(45deg);
-                            }
-                        }
-
-                        .border-right{
-                            top: 80px;
-                            bottom: unset;
-                            transform: skewY(-45deg);
-
-                            @include lg{
-                                top: unset;
-                                bottom: 80px;
-                                transform: skewY(45deg);
-                            }
-                        }
-                    }
-                }
-
                 &:nth-child(2){
                     @include lg{
                         margin-top: 120px;
@@ -1653,10 +1623,39 @@
                         margin-right: 0!important;
                     }
                 }
+
+                &:nth-child(5) {
+                    @include lg {
+                        margin-left: 300px;
+                        margin-top: -120px;
+                    }
+                }
+
+                &:nth-child(6) {
+                    @include lg {
+                        margin-top: 0;
+                    }
+                }
+
+                &:nth-child(7) {
+                    @include lg {
+                        margin-top: 120px;
+                    }
+                    .border-left-bottom, .border-right-bottom {
+                        height: 310px;
+                    }
+                }
             }
 
             &-pagination{
                 bottom: 0;
+            }
+
+            &-wrapper {
+                @include lg {
+                    flex-flow: wrap;
+                    column-gap: 30px;
+                }
             }
         }
 
@@ -1664,25 +1663,14 @@
 
             &__top{
                 position: relative;
-                height: 382px;
+                height: 318px;
                 background-color: $white;
-
-                @include sm{
-                    height: 318px;
-                }
-
-                @include md{
-                    height: 382px;
-                }
-
-                @include lg{
-                    height: 318px;
-                }
+                overflow: hidden;
 
                 .image-place{
                     width: 100%;
                     height: 100%;
-                    background-size: contain;
+                    background-size: cover;
                     background-position-y: bottom;
                     background-repeat: no-repeat;
 
@@ -1694,22 +1682,25 @@
                     left: 0;
                     right: 0;
                     bottom: 0;
-                    border: 25px solid $grey-low;
+                    border-top: 25px solid $grey-low;
+                    border-bottom: 25px solid $grey-low;
 
                     @include sm{
-                        border: 20px solid $grey-low;
+                        border-top: 20px solid $grey-low;
+                        border-bottom: 20px solid $grey-low;
                     }
 
                     @include md{
-                        border: 25px solid $grey-low;
+                        border-top: 25px solid $grey-low;
+                        border-bottom: 25px solid $grey-low;
                     }
                 }
 
-                .border-left, .border-right{
+                .border-left-top, .border-right-top{
                     position: absolute;
                     width: 25px;
-                    height: 110px;
-                    background-color: $white;
+                    height: 80px;
+                    background-color: $grey-low;
 
                     @include sm{
                         width: 20px;
@@ -1718,23 +1709,48 @@
                     @include md{
                         width: 25px;
                     }
+                }
 
-                    @include lg{
-                        height: 80px;
+                .border-left-bottom, .border-right-bottom {
+                    position: absolute;
+                    width: 25px;
+                    height: 180px;
+                    background-color: $grey-low;
+
+                    @include sm{
+                        width: 20px;
+                    }
+
+                    @include md{
+                        width: 25px;
                     }
                 }
 
-                .border-left{
-                    top: 80px;
+                .border-left-top{
+                    top: 0;
                     bottom: unset;
                     left: 0;
                     transform: skewY(45deg);
                 }
 
-                .border-right{
+                .border-right-top{
                     right: 0;
                     top: unset;
-                    bottom: 80px;
+                    bottom: 0;
+                    transform: skewY(45deg);
+                }
+
+                .border-left-bottom{
+                    top: unset;
+                    bottom: 0;
+                    left: 0;
+                    transform: skewY(45deg);
+                }
+
+                .border-right-bottom{
+                    right: 0;
+                    top: 0;
+                    bottom: unset;
                     transform: skewY(45deg);
                 }
             }
@@ -1823,7 +1839,7 @@
             position: absolute;
             display: flex;
             flex-direction: column;
-            top: 685px;
+            top: 526px;
             left: 0;
             width: 270px;
         }
@@ -1939,7 +1955,7 @@
     .contact {
 
         &-header {
-            padding: 24px 32px 24px 16px;
+            padding: 12px 15px;
             display: flex;
             border-bottom: 1px solid #E5E9EE;
 
@@ -1952,9 +1968,9 @@
             }
 
             .logo {
-                width: 50px;
-                height: 50px;
-                min-width: 50px;
+                width: 72px;
+                height: 72px;
+                min-width: 72px;
 
                 @include sm {
                     width: 68px;
@@ -1964,7 +1980,12 @@
             }
 
             .info {
-                margin: 0 24px;
+                margin: 0 12px;
+                max-width: 206px;
+
+                @include sm {
+                    max-width: none;
+                }
 
                 .title {
                     font-weight: 600;
@@ -2013,7 +2034,7 @@
         }
 
         &-form {
-            padding: 24px 15px 0;
+            padding: 16px 15px 0;
             display: flex;
             flex-flow: column;
             height: 100%;
@@ -2035,11 +2056,9 @@
 
             .list {
                 margin-top: 12px;
-                margin-bottom: 20px;
 
                 @include sm {
                     margin-top: 16px;
-                    margin-bottom: 36px;
                 }
 
                 @include md {
@@ -2049,31 +2068,23 @@
                 li {
                     cursor: pointer;
                     position: relative;
+                    padding: 4px 12px;
+                    background: rgba(234, 65, 54, 0.1);
+                    display: flex;
+                    align-items: center;
+                    column-gap: 4px;
 
                     &:not(:first-child) {
-                        margin-top: 16px;
-                    }
-
-                    @include sm {
-                        padding: 8px 12px;
-                        background: #E5E9EE;
-                        display: flex;
-                        align-items: center;
-                        column-gap: 8px;
-
-                        &:not(:first-child) {
-                            margin-top: 0;
-                        }
+                        margin-top: 0;
                     }
 
                     svg {
-                        width: 28px;
-                        height: 28px;
-                        min-width: 28px;
-                        display: none;
+                        width: 16px;
+                        height: 16px;
+                        min-width: 16px;
 
-                        @include sm {
-                            display: block;
+                        path {
+                            fill: #EA4136;
                         }
                     }
 
@@ -2085,52 +2096,26 @@
                         height: 100%;
                         margin: 0;
                         opacity: 0;
+                        cursor: pointer;
                     }
 
                     label {
-                        display: flex;
-                        font-weight: 600;
-                        font-size: 14px;
-                        line-height: 20px;
-                        color: #9AA2AC;
-
-                        @include sm {
-                            display: block;
-                            font-size: 18px;
-                            line-height: 28px;
-                            font-weight: 400;
-                            color: #202831;
-                        }
-                    }
-
-                    span {
-                        width: 20px;
-                        height: 20px;
-                        margin-right: 12px;
                         display: block;
-                        background-color: #ffffff;
-                        position: relative;
-
-                        @include sm {
-                            display: none;
-                        }
+                        font-size: 18px;
+                        line-height: 28px;
+                        font-weight: 400;
+                        color: #202831;
                     }
 
                     &.active {
-                        @include sm {
-                            background: #36B2EA;
-                        }
+                        background: #36B2EA;
 
                         label {
-                            color: #202831;
-
-                            @include sm {
-                                color: #FFFFFF;
-                            }
+                            color: #FFFFFF;
                         }
 
                         svg path{
-                            fill: #fff;
+                            fill: rgba(255, 255, 255, 0.5);
                         }
 
                         span:after {
@@ -2144,78 +2129,98 @@
                         }
                     }
                 }
-                //dropdown
-
-                .anchor {
-                    position: relative;
-                    cursor: pointer;
-                    padding: 12px 16px;
-                    width: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    background: #F3F3F4;
-                    border: 1px solid #E5E9EE;
-
-                    @include sm {
-                        display: none;
-                    }
-
-                    .font-titanium {
-                        font-weight: 400;
-                        font-size: 14px;
-                        line-height: 20px;
-                        color: #202831;
-                    }
-                }
 
                 .items {
-                    margin-top: 2px;
-                    display: none;
-                    border: 1px solid #E5E9EE;
-                    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.02), 0px 2px 4px rgba(0, 0, 0, 0.08);
-                    padding: 20px 15px;
-                    background: #F3F3F4;
+                    display: flex;
+                    flex-flow: wrap;
+                    gap: 8px 12px;
+                    padding: 0;
+                    margin: 0;
+                    background-color: inherit;
 
                     @include sm {
-                        display: flex;
-                        flex-flow: wrap;
                         gap: 16px 12px;
-                        padding: 0;
-                        margin: 0;
-                        border: none;
-                        background-color: inherit;
-                        box-shadow: none;
                     }
                 }
+            }
 
-                &.visible .anchor {
+            .input-group {
+                margin-top: 32px;
+                position: relative;
 
-                    .font-titanium {
+                label {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    color: #9AA2AC;
+                    position: absolute;
+                    top: 12px;
+                    left: 16px;
+                    transition: all 0.3s ease-in-out;;
+
+                    &:hover {
+                        color: #202831;
+                    }
+
+                    &.filled {
+                        font-weight: 600;
+                        font-size: 12px;
+                        line-height: 16px;
                         color: #9AA2AC;
-                    }
-
-                    svg {
-                        transform: rotate(-180deg);
+                        top: -20px;
+                        left: 0;
                     }
                 }
 
-                &.visible .items {
-                    display: block;
+                span {
+                    font-weight: 600;
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: #E83F33;
+                    position: absolute;
+                    top: -20px;
+                    right: -0;
+                    display: none;
+                }
+
+                &.error {
+                    input {
+                        border: 1px solid #E83F33;
+                    }
+
+                    span {
+                        display: block;
+                    }
                 }
             }
 
             input,
             textarea{
-                margin-top: 32px;
                 padding: 12px 16px;
                 background: #F3F3F4;
                 font-weight: 400;
                 font-size: 16px;
                 line-height: 24px;
-                color: #9AA2AC;
+                color: #202831;
                 width: 100%;
-                border: none;
+                border: 1px solid #F3F3F4;
+
+                &:hover {
+                    color: #202831;
+                }
+
+                &:focus {
+                    border: 1px solid #36B2EA;
+
+                    + label {
+                        font-weight: 600;
+                        font-size: 12px;
+                        line-height: 16px;
+                        color: #9AA2AC;
+                        top: -20px;
+                        left: 0;
+                    }
+                }
             }
 
             textarea {
@@ -2311,10 +2316,15 @@
                     top: 32px;
                     right: 32px;
                 }
+
+                &:hover {
+                    path {
+                        fill: #202831;
+                    }
+                }
             }
 
             .info {
-                margin-top: auto;
 
                 img {
                     width: 108px;
@@ -2362,14 +2372,15 @@
                 font-size: 14px;
                 line-height: 20px;
                 color: #202831;
-                margin: auto auto 32px;
                 width: calc(100% - 30px);
+                margin: auto auto 24px;
 
                 @include sm {
-                    margin: auto auto 48px;
                     padding: 12px 24px;
                     font-size: 16px;
                     line-height: 24px;
+                    max-width: 352px;
+                    margin: 48px auto 0;
                 }
             }
         }

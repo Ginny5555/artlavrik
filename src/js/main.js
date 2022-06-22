@@ -7,22 +7,43 @@ import { elementScrollIntoView } from "seamless-scroll-polyfill";
 
 
 // TEAM SLIDER
-new Swiper(".team__slider .swiper", {
-    modules: [Pagination],
-    slidesPerView: 'auto',
-    spaceBetween: 9,
-    breakpoints: {
-        768: {
-            spaceBetween: 20
+const teamSliderBreakpoint = window.matchMedia('(min-width: 1280px)');
+let teamSliderInstance;
+const enableTeamSlider = () => {
+    teamSliderInstance = new Swiper(".team__slider .swiper", {
+        modules: [Pagination],
+        slidesPerView: 'auto',
+        spaceBetween: 9,
+        breakpoints: {
+            768: {
+                spaceBetween: 20
+            },
+            1280: {
+                spaceBetween: 30
+            },
         },
-        1280: {
-            spaceBetween: 30
+        pagination: {
+            el: '.team__slider .swiper-pagination',
         },
-    },
-    pagination: {
-        el: '.team__slider .swiper-pagination',
-    },
-})
+    })
+}
+
+const teamSlider = () => {
+    if(teamSliderBreakpoint.matches){
+        if(teamSliderInstance !== undefined) teamSliderInstance.destroy(true, true);
+        return;
+    } else if(!teamSliderBreakpoint.matches){
+        return enableTeamSlider();
+    }
+}
+
+teamSliderBreakpoint.addListener(teamSlider);
+teamSlider();
+
+
+
+
+
 
 // SERVICES SLIDER
 const servicesSliderBreakpoint = window.matchMedia('(min-width: 960px)');
@@ -111,14 +132,18 @@ const headerLinks  = document.querySelectorAll("header .menu-item > a");
 headerLinks.forEach(item => {
     const className = item.getAttribute("data-scroll");
     item.addEventListener("click", e => {
-        e.preventDefault();
-        if (className == "contacts") {
-            contactForm.classList.add('opened');
-            body.classList.add("noscroll");
-        } else {
-            setTimeout(() => elementScrollIntoView(document.querySelector(`.${className}`), { behavior: "smooth" }), 300 );
+        switch (className) {
+            case "contacts":
+                e.preventDefault();
+                contactForm.classList.add('opened');
+                body.classList.add("noscroll");
+                break;
+            case "skip":
+                break;
+            default:
+                e.preventDefault();
+                setTimeout(() => elementScrollIntoView(document.querySelector(`.${className}`), { behavior: "smooth" }), 300 );
         }
-
     })
 })
 
@@ -132,11 +157,13 @@ if (mainBannerLink) {
 
 //CONTACT FORM
 const  contactForm = document.getElementsByClassName('popup')[0];
-const closeForm = contactForm.querySelector('[data-role="close"]');
-closeForm.onclick = () => {
+const closeForm = $('[data-role="close"]');
+closeForm.on('click', function () {
     contactForm.classList.remove('opened')
     body.classList.remove("noscroll");
-}
+    $('.contact-dialog').removeClass('hide');
+    $('.contact-success').addClass('hide');
+})
 
 contactForm.querySelector('input[type="file"]').addEventListener('change', () => {
     var file = event.target.files[0].name;
@@ -145,14 +172,7 @@ contactForm.querySelector('input[type="file"]').addEventListener('change', () =>
 
 //dropdown list
 var checkList = document.getElementsByClassName('dropdown')[0];
-checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
-    if (checkList.classList.contains('visible'))
-        checkList.classList.remove('visible');
-    else
-        checkList.classList.add('visible');
-}
 
-//control list
 checkList.addEventListener('change', function () {
     var chk = event.target
 
@@ -165,18 +185,45 @@ checkList.addEventListener('change', function () {
     }
 })
 
+$('.input-group *').on("change paste keyup", function() {
+    $(this).parent().removeClass('error');
+
+    if ($(this).val()) {
+        $(this).next().addClass('filled');
+    }
+    else {
+        $(this).next().removeClass('filled');
+    }
+})
+
 contactForm.querySelector('form').onsubmit = async (e) => {
     e.preventDefault();
 
-    let response = await fetch('/contact-form.php', {
-        method: 'POST',
-        body: new FormData(contactForm.querySelector('form'))
-    });
-    if (response.ok) {
-        e.target.parentElement.classList.add("hide");
-        e.target.parentElement.nextSibling.classList.remove('hide');
-    } else {
-        alert("Error, please try again")
+    let name = $('input[name="name"]');
+    let email = $('input[name="email"]');
+    let required = true;
+    if (!name.val()) {
+        name.parent().addClass('error');
+        required = false;
+    }
+
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (!regex.test(email.val())) {
+        email.parent().addClass('error');
+        required = false;
+    }
+
+    if (required) {
+        let response = await fetch('/contact-form.php', {
+            method: 'POST',
+            body: new FormData(contactForm.querySelector('form'))
+        });
+        if (response.ok) {
+            e.target.parentElement.classList.add("hide");
+            e.target.parentElement.nextSibling.classList.remove('hide');
+        } else {
+            alert("Error, please try again")
+        }
     }
 };
 

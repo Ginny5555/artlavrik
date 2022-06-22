@@ -3,6 +3,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const WebpackFavicons = require("webpack-favicons");
+const webpack = require('webpack');
+
 const bundleFolder = 'dist';
 
 module.exports = {
@@ -74,6 +76,12 @@ module.exports = {
     },
 
     plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery/dist/jquery.min.js",
+            jQuery: "jquery/dist/jquery.min.js",
+            "window.jQuery": "jquery/dist/jquery.min.js"
+        }),
+
         new MiniCssExtractPlugin({
             filename: 'css/[name].css',
         }),
