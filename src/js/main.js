@@ -155,26 +155,10 @@ if (mainBannerLink) {
     })
 }
 
-//CONTACT FORM
-const  contactForm = document.getElementsByClassName('popup')[0];
-const closeForm = $('[data-role="close"]');
-closeForm.on('click', function () {
-    contactForm.classList.remove('opened')
-    body.classList.remove("noscroll");
-    $('.contact-dialog').removeClass('hide');
-    $('.contact-success').addClass('hide');
-})
 
-contactForm.querySelector('input[type="file"]').addEventListener('change', () => {
-    var file = event.target.files[0].name;
-    event.currentTarget.nextSibling.nextSibling.innerHTML = file
-})
-
-//dropdown list
-var checkList = document.getElementsByClassName('dropdown')[0];
-
-checkList.addEventListener('change', function () {
-    var chk = event.target
+var checkList = document.getElementsByClassName('dropdown');
+Array.from(checkList).forEach(el => el.addEventListener('change', function (e) {
+    var chk = e.target
 
     if (chk.tagName === 'INPUT' && chk.type === 'checkbox') {
         if (chk.checked){
@@ -183,7 +167,7 @@ checkList.addEventListener('change', function () {
             chk.parentElement.parentElement.classList.remove('active');
         }
     }
-})
+}))
 
 $('.input-group *').on("change paste keyup", function() {
     $(this).parent().removeClass('error');
@@ -195,12 +179,25 @@ $('.input-group *').on("change paste keyup", function() {
         $(this).next().removeClass('filled');
     }
 })
+$('input[type="file"]').on('change', function () {
+    $(this).next().html($(this)[0].files[0].name)
+})
+
+//CONTACT FORM
+const  contactForm = document.querySelector('[data-action="contact-us"]');
+const closeForm = $('[data-action="contact-us"] [data-role="close"]');
+closeForm.on('click', function () {
+    contactForm.classList.remove('opened')
+    body.classList.remove("noscroll");
+    $('.contact-dialog').removeClass('hide');
+    $('.contact-success').addClass('hide');
+})
 
 contactForm.querySelector('form').onsubmit = async (e) => {
     e.preventDefault();
 
-    let name = $('input[name="name"]');
-    let email = $('input[name="email"]');
+    let name = $('[data-action="contact-us"] input[name="name"]');
+    let email = $('[data-action="contact-us"] input[name="email"]');
     let required = true;
     if (!name.val()) {
         name.parent().addClass('error');
@@ -227,6 +224,57 @@ contactForm.querySelector('form').onsubmit = async (e) => {
     }
 };
 
+//Join form
+const joinForm = document.querySelector('[data-action="join-team"]');
+
+if (joinForm) {
+    $('[data-role="join-team"]').on('click', (e) => {
+        e.preventDefault();
+        joinForm.classList.add('opened');
+        body.classList.add("noscroll");
+    })
+    const closeJoinForm = $('[data-action="join-team"] [data-role="close"]');
+    closeJoinForm.on('click', function () {
+        joinForm.classList.remove('opened')
+        body.classList.remove("noscroll");
+        $('.contact-dialog').removeClass('hide');
+        $('.contact-success').addClass('hide');
+    })
+
+
+
+    joinForm.querySelector('form').onsubmit = async (e) => {
+        e.preventDefault();
+
+        let name = $('[data-action="join-team"] input[name="name"]');
+        let email = $('[data-action="join-team"] input[name="email"]');
+        let required = true;
+        if (!name.val()) {
+            name.parent().addClass('error');
+            required = false;
+        }
+
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!regex.test(email.val())) {
+            email.parent().addClass('error');
+            required = false;
+        }
+
+        if (required) {
+            let response = await fetch('/contact-form.php', {
+                method: 'POST',
+                body: new FormData(joinForm.querySelector('form'))
+            });
+            if (response.ok) {
+                e.target.parentElement.classList.add("hide");
+                e.target.parentElement.nextSibling.classList.remove('hide');
+            } else {
+                alert("Error, please try again")
+            }
+        }
+    };
+
+}
 // TABS
 const tabs = document.querySelectorAll("[data-tab]");
 const panes = document.querySelectorAll("[data-pane]");

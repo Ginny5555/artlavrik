@@ -473,18 +473,32 @@
         &:hover{
             background-color: $grey-beach;
         }
+
+        &.disabled {
+            color: #9AA2AC;
+            cursor: auto;
+            pointer-events: none;
+
+            &:hover{
+                background-color: $grey-low;
+            }
+        }
     }
 }
 
 .services{
-    padding-top: 124px;
+    padding-top: 52px;
 
     @include sm{
-        padding-top: 105px;
+        padding-top: 70px;
+    }
+
+    @include md{
+        padding-top: 95px;
     }
 
     @include lg{
-        padding-top: 120px;
+        padding-top: 105px;
     }
 
     &__wrapper{
@@ -950,14 +964,18 @@
 }
 
 .work{
-    margin-top: 130px;
+    padding-top: 52px;
 
     @include sm{
-        margin-top: 80px;
+        padding-top: 70px;
+    }
+
+    @include md{
+        padding-top: 95px;
     }
 
     @include lg{
-        margin-top: 140px;
+        padding-top: 105px;
         position: relative;
         padding-bottom: 200px;
     }
@@ -1494,18 +1512,18 @@
 }
 
 .team{
-    padding: 124px 0;
+    padding: 52px 0;
 
     @include sm{
-        padding: 80px 0 100px;
+        padding: 70px 0 100px;
     }
 
     @include md{
-        padding: 80px 0 120px;
+        padding: 95px 0 120px;
     }
 
     @include lg{
-        padding: 80px 0 215px;
+        padding: 105px 0 215px;
     }
 
     &__wrapper{
@@ -1586,6 +1604,7 @@
 
             &-slide{
                 width: 286px;
+                height: auto;
 
                 @include sm{
                     width: 250px;
@@ -1649,6 +1668,10 @@
 
             &-pagination{
                 bottom: 0;
+
+                @include lg {
+                    display: none;
+                }
             }
 
             &-wrapper {
@@ -1673,7 +1696,27 @@
                     background-size: cover;
                     background-position-y: bottom;
                     background-repeat: no-repeat;
+                    transition: max-height 0.3s ease-in-out;
+                    max-height: 320px;
+                }
 
+                .image-place-color {
+                    height: 100%;
+                    max-height: 0;
+                    width: 100%;
+                    background-size: cover;
+                    background-position-y: bottom;
+                    background-repeat: no-repeat;
+                    transition: max-height 0.3s ease-in-out;
+                }
+
+                &:hover {
+                    .image-place-color {
+                        max-height: 320px;
+                    }
+                    .image-place {
+                        max-height: 0;
+                    }
                 }
 
                 .border{
@@ -1790,6 +1833,7 @@
 
             &--join{
                 position: relative;
+                height: 100%;
 
                 & > a{
                     position: absolute;
@@ -1806,8 +1850,8 @@
                     row-gap: 22px;
                     align-items: center;
                     justify-content: center;
-                    height: 517px;
                     background-color: $white;
+                    height: 100%;
 
                     @include sm{
                         height: 453px;
@@ -1826,6 +1870,40 @@
                         font-size: 18px;
                         line-height: 28px;
                         color: $link;
+                    }
+                }
+
+                &:hover {
+                    .border {
+                        border-color: #C41F14;
+                    }
+                    .border-left-top, .border-right-top, .border-left-bottom, .border-right-bottom {
+                        background-color: #C41F14;
+                    }
+
+                    span {
+                        color: #C41F14;
+                    }
+
+                    svg path {
+                        fill: #C41F14;
+                    }
+                }
+
+                &:active {
+                    .border {
+                        border-color: #EF7168;
+                    }
+                    .border-left-top, .border-right-top, .border-left-bottom, .border-right-bottom {
+                        background-color: #EF7168;
+                    }
+
+                    span {
+                        color: #EF7168;
+                    }
+
+                    svg path {
+                        fill: #EF7168;
                     }
                 }
             }
@@ -2027,7 +2105,13 @@
 
                 &:hover {
                     path {
-                        fill: #202831;
+                        fill: #C41F14;
+                    }
+                }
+
+                &:active {
+                    path {
+                        fill: #EF7168;
                     }
                 }
             }
@@ -2078,6 +2162,18 @@
                         margin-top: 0;
                     }
 
+                    &:hover {
+                        background: #EA4136;
+
+                        svg path {
+                            fill: rgba(255,255,255,0.5);
+                        }
+
+                        label {
+                            color: #fff;
+                        }
+                    }
+
                     svg {
                         width: 16px;
                         height: 16px;
@@ -2126,6 +2222,18 @@
                             top: 4px;
                             left: 4px;
                             background-color: #EA4136;
+                        }
+
+                        &:hover {
+                            background: #EA4136;
+
+                            svg path {
+                                fill: rgba(255,255,255,0.5);
+                            }
+
+                            label {
+                                color: #fff;
+                            }
                         }
                     }
                 }
@@ -2228,6 +2336,10 @@
                 resize: none;
                 margin-bottom: 24px;
                 min-height: 140px;
+
+                @include md {
+                    margin-bottom: 0;
+                }
             }
 
             .buttons {
@@ -2255,6 +2367,15 @@
                     padding: 12px 0;
                 }
 
+                .submit {
+                    &:hover {
+                        background: #C41F14;
+                    }
+                    &:active {
+                        background: #EF7168;
+                    }
+                }
+
                 .attach {
                     color: #202831;
                     background: #E5E9EE;
@@ -2273,6 +2394,17 @@
                         text-overflow: ellipsis;
                         white-space: nowrap;
                         max-width: 75%;
+                    }
+                    &:hover {
+                        background: #CBD3DD;
+                    }
+                    &:active {
+                        background: #CBD3DD;
+                        color: #fff;
+
+                        svg path {
+                            fill: #fff;
+                        }
                     }
                 }
             }
@@ -2300,6 +2432,7 @@
             @include md {
                 max-width: 570px;
                 max-height: 800px;
+                height: calc(400px + 20vh);
             }
 
             &.hide {
@@ -2319,7 +2452,13 @@
 
                 &:hover {
                     path {
-                        fill: #202831;
+                        fill: #C41F14;
+                    }
+                }
+
+                &:active {
+                    path {
+                        fill: #EF7168;
                     }
                 }
             }
@@ -2366,12 +2505,12 @@
             }
 
             .success {
-                background: #E5E9EE;
+                background: #EA4136;
                 padding: 8px 0;
                 font-weight: 600;
                 font-size: 14px;
                 line-height: 20px;
-                color: #202831;
+                color: #fff;
                 width: calc(100% - 30px);
                 margin: auto auto 24px;
 
@@ -2381,6 +2520,14 @@
                     line-height: 24px;
                     max-width: 352px;
                     margin: 48px auto 0;
+                }
+
+                &:hover {
+                    background: #C41F14;
+                }
+
+                &:active {
+                    background: #EF7168;
                 }
             }
         }

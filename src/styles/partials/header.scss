@@ -74,7 +74,7 @@
                     display: flex;
                     align-items: center;
                     width: calc(100% - 48px);
-                    background-color: #EF7168;
+                    background-color: #202831;
                     color: $white;
                     padding-left: 20px;
 
@@ -92,6 +92,10 @@
 
                     &:hover{
                         background-color: #C41F14;
+                    }
+
+                    &:active{
+                        background-color: #EF7168;
                     }
 
                     & > a{
