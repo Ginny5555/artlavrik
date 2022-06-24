@@ -218,6 +218,7 @@ contactForm.querySelector('form').onsubmit = async (e) => {
         if (response.ok) {
             e.target.parentElement.classList.add("hide");
             e.target.parentElement.nextSibling.classList.remove('hide');
+            resetForm(contactForm.querySelector('form'));
         } else {
             alert("Error, please try again")
         }
@@ -268,12 +269,20 @@ if (joinForm) {
             if (response.ok) {
                 e.target.parentElement.classList.add("hide");
                 e.target.parentElement.nextSibling.classList.remove('hide');
+                resetForm(joinForm.querySelector('form'));
             } else {
                 alert("Error, please try again")
             }
         }
     };
 
+}
+
+function resetForm(form){
+    form.reset();
+    let formCheckList = form.querySelectorAll('.dropdown ul li');
+    console.log(formCheckList)
+    Array.from(formCheckList).forEach(el => el.classList.remove('active'))
 }
 // TABS
 const tabs = document.querySelectorAll("[data-tab]");
