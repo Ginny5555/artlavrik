@@ -1951,4 +1951,24 @@
             }
         }
     }
+
+    .products {
+        padding: 60px 0;
+
+        @include sm{
+            padding: 120px 0;
+        }
+
+        @include md{
+            padding: 88px 0;
+        }
+
+        @include lg{
+            padding: 120px 0;
+        }
+
+        &__wrapper {
+            margin-top: 0;
+        }
+    }
 }

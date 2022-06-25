@@ -2079,6 +2079,10 @@
 
                     a {
                         color: #36B2EA;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
                     }
                 }
             }
@@ -2109,13 +2113,14 @@
             display: flex;
             flex-flow: column;
             height: 100%;
+            position: relative;
 
             @include sm {
-                padding: 72px 34px 44px;
+                padding: 72px 34px 0;
             }
 
             @include md {
-                padding: 32px;
+                padding: 32px 32px 0;
             }
 
             .name {
@@ -2251,11 +2256,8 @@
                     position: absolute;
                     top: 12px;
                     left: 16px;
-                    transition: all 0.3s ease-in-out;;
-
-                    &:hover {
-                        color: #202831;
-                    }
+                    transition: all 0.3s ease-in-out;
+                    pointer-events: none;
 
                     &.filled {
                         font-weight: 600;
@@ -2302,6 +2304,10 @@
 
                 &:hover {
                     color: #202831;
+
+                    & + label {
+                        color: #202831;
+                    }
                 }
 
                 &:focus {
@@ -2333,11 +2339,18 @@
                 display: flex;
                 justify-content: space-between;
                 margin-top: auto;
-                padding-bottom: 24px;
+                padding-bottom: 100px;
+                position: sticky;
+                bottom: 0;
+                background-color: #fff;
+
+                @include sm {
+                    padding-bottom: 24px;
+                }
 
                 @include md {
                     margin-top: 44px;
-                    padding-bottom: 0;
+                    padding-bottom: 32px;
                 }
 
                 .submit,
@@ -2401,6 +2414,10 @@
             flex-flow: column;
             display: flex;
             height: calc(100vh - 100px);
+
+            @include sm {
+                height: 100%;
+            }
 
             &.hide {
                 display: none;
