@@ -120,6 +120,9 @@ module.exports = {
                     globOptions: {
                         ignore: ['*.DS_Store', 'Thumbs.db'],
                     },
+                },
+                {
+                    from: "contact-form.php", to: "./",
                 }
             ]
         }),

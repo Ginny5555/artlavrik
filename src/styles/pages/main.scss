@@ -366,6 +366,14 @@
                     bottom: 20px;
                     left: 20px;
                 }
+
+                .product__explore.soon{
+                    color: $secondary-text;
+
+                    svg path{
+                        fill: $secondary-text;
+                    }
+                }
             }
 
             &.centrobill.disabled{
