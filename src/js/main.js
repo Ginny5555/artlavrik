@@ -124,7 +124,12 @@ linkItems.forEach(item => {
         burgerButton.classList.remove("active");
         burgerMenu.classList.remove("active");
         burgerMenu.style.height = "0";
-        setTimeout(() => elementScrollIntoView(document.querySelector(`.${className}`), { behavior: "smooth" }), 300 );
+        if (location.pathname !== "/"){
+            localStorage.setItem("scrollTo", className);
+            setTimeout(() => { location.href = "/" }, 300);
+        } else {
+            setTimeout(() => elementScrollIntoView(document.querySelector(`.${className}`), { behavior: "smooth" }), 300 );
+        }
     })
 })
 
@@ -142,10 +147,31 @@ headerLinks.forEach(item => {
                 break;
             default:
                 e.preventDefault();
-                setTimeout(() => elementScrollIntoView(document.querySelector(`.${className}`), { behavior: "smooth" }), 300 );
+                if (location.pathname !== "/"){
+                    localStorage.setItem("scrollTo", className);
+                    location.href = "/"
+                } else {
+                    const menu = document.querySelector(`[data-scroll=${className}]`);
+                    menu.classList.add("pressed");
+                    setTimeout(() => menu.classList.remove("pressed"), 2000)
+                    elementScrollIntoView(document.querySelector(`.${className}`), { behavior: "smooth" });
+                }
         }
     })
 })
+
+const scrollTo = localStorage.getItem("scrollTo")
+if(scrollTo){
+    document.onreadystatechange = () => {
+        if (document.readyState === "complete") {
+            const menu = document.querySelector(`[data-scroll=${scrollTo}]`);
+            menu.classList.add("pressed");
+            setTimeout(() => menu.classList.remove("pressed"), 2000)
+            elementScrollIntoView(document.querySelector(`.${scrollTo}`), { behavior: "smooth" });
+            localStorage.removeItem("scrollTo");
+        }
+    };
+}
 
 const mainBannerLink = document.querySelector('a[data-role="portfolio"]');
 if (mainBannerLink) {
@@ -154,6 +180,29 @@ if (mainBannerLink) {
         setTimeout(() => elementScrollIntoView(document.querySelector('.products'), { behavior: "smooth" }), 300 );
     })
 }
+
+const exploreProductsBtn = document.querySelector('a[data-role="products"]');
+const productsWrapper = document.querySelector(".products .products__wrapper");
+
+const setProductsWrapperHeight = () => {
+    const mobileBreakpoint = window.matchMedia('(max-width: 767px)');
+    if(mobileBreakpoint.matches){
+        if(!productsWrapper.classList.contains("opened")){
+            productsWrapper.style.maxHeight = `${productsWrapper.children[0].offsetHeight + productsWrapper.children[1].offsetHeight + 24}px`;
+        } else {
+            productsWrapper.style.maxHeight = `${productsWrapper.scrollHeight}px`;
+        }
+    } else {
+        productsWrapper.style.maxHeight = "unset";
+    }
+}
+setProductsWrapperHeight();
+exploreProductsBtn?.addEventListener("click", e => {
+    e.preventDefault();
+    productsWrapper.classList.add("opened");
+    setProductsWrapperHeight();
+    document.querySelector(".products .products__button").style.display = "none";
+})
 
 
 var checkList = document.getElementsByClassName('dropdown');
@@ -311,6 +360,7 @@ document.querySelectorAll("[data-animation]").forEach(el => {
 
 window.addEventListener('resize', function() {
     setBurgerMenuHeight();
+    setProductsWrapperHeight();
 });
 
 //DYNAMIC YEAR IN FOOTER

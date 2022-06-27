@@ -63,10 +63,19 @@
                     font-size: 14px;
                     line-height: 20px;
                     letter-spacing: 0.01em;
+                    transition: color $hover-transition-length ease-in-out;
 
                     @include sm{
                         font-size: 16px;
                         line-height: 24px;
+                    }
+
+                    &:hover{
+                        color: $hover;
+                    }
+
+                    &.pressed{
+                        color: $pressed;
                     }
                 }
 
@@ -92,6 +101,10 @@
 
                     &:hover{
                         background-color: #C41F14;
+
+                        a{
+                            color: #FFFFFF;
+                        }
                     }
 
                     &:active{

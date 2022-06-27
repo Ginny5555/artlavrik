@@ -183,6 +183,7 @@
         row-gap: 24px;
         overflow: hidden;
         margin-top: 40px;
+        transition: max-height $hover-transition-length ease-in-out;
 
         @include sm{
             overflow: visible;
@@ -227,11 +228,11 @@
                 }
             }
 
-            &:not(&:first-child, &:nth-child(2)){
-                @media (max-width: 767px) {
-                    display: none;
-                }
-            }
+            //&:not(&:first-child, &:nth-child(2)){
+            //    @media (max-width: 767px) {
+            //        display: none;
+            //    }
+            //}
 
             &:hover .product__explore{
                 @include lg{
@@ -361,10 +362,20 @@
 
             &.cl{
 
-
                 .product__store{
                     bottom: 20px;
                     left: 20px;
+                }
+            }
+
+            &.centrobill.disabled{
+
+                .product__explore.soon{
+                    color: $secondary-text;
+
+                    svg path{
+                        fill: $secondary-text;
+                    }
                 }
             }
 
@@ -449,16 +460,18 @@
         align-items: center;
         justify-content: center;
         width: 100%;
-        height: 40px;
+        height: 36px;
         font-weight: 600;
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 14px;
+        line-height: 20px;
         margin-top: 24px;
+        letter-spacing: 0.01em;
         background-color: $grey-low;
         transition: all $hover-transition-length ease-in-out;
 
         @include sm{
-            width: 165px;
+            display: none;
+            width: 149px;
             margin-left: auto;
             margin-right: auto;
             margin-top: 32px;
@@ -482,6 +495,10 @@
             &:hover{
                 background-color: $grey-low;
             }
+        }
+
+        svg{
+            margin-left: 4px;
         }
     }
 }
@@ -1120,20 +1137,36 @@
 
             &[data-pane=workflow]{
                 @include sm{
+                    flex-direction: column;
+                    flex-wrap: wrap;
                     max-width: 700px;
                     margin-left: auto;
                     margin-right: auto;
-                    height: 970px;
+                    height: 910px;
                 }
 
                 @include md{
                     max-width: 892px;
-                    height: 777px;
+                    height: 738px;
                 }
 
                 @include lg{
                     max-width: 1170px;
-                    height: 782px;
+                    height: 760px;
+                }
+
+                &::before{
+                    content: "";
+                    flex-basis: 100%;
+                    width: 0;
+                    order: 2;
+                }
+
+                &::after{
+                    content: "";
+                    flex-basis: 100%;
+                    width: 0;
+                    order: 2;
                 }
             }
 
@@ -1370,97 +1403,18 @@
                     width: 370px;
                 }
 
-                &:nth-child(2){
-
-                    @include lg{
-                        top: 60px;
-                    }
-                }
-
-                &:nth-child(3){
-                    @include sm{
-                        top: -120px;
-                    }
-
-                    @include md{
-                        top: -80px;
-                    }
-
-                    @include lg{
-                        top: 500px;
-                    }
-                }
-
                 &:nth-child(4){
 
                     @include lg{
-                        top: -313px;
-                        order: 3;
-                    }
-                }
-
-                &:nth-child(5){
-                    @include sm{
-                        top: -120px;
-                    }
-
-                    @include md{
-                        top: -80px;
-                    }
-
-                    @include lg{
-                        top: -145px;
-                    }
-                }
-
-                &:nth-child(6){
-                    @include sm{
-                        top: -40px;
-                    }
-
-                    @include lg{
-                        order: 1;
-                        top: 58px;
+                        margin-top: 60px;
                     }
                 }
 
                 &:nth-child(7){
-                    @include sm{
-                        top: -260px;
-                    }
-
-                    @include md{
-                        top: -180px;
-                    }
-
                     @include lg{
-                        order: 2;
+                        margin-top: 120px;
                     }
                 }
-
-                &:nth-child(8){
-                    @include sm{
-                        top: -40px;
-                    }
-                    @include lg{
-                        position: absolute;
-                        top: 1078px;
-                    }
-                }
-
-                //&:nth-child(2), &:nth-child(5){
-                //    @include lg{
-                //        top: 60px;
-                //        position: relative;
-                //    }
-                //}
-                //
-                //&:nth-child(3), &:nth-child(6){
-                //    @include lg{
-                //        top: 120px;
-                //        position: relative;
-                //    }
-                //}
 
                 &__image{
                     width: 60px;
@@ -1574,7 +1528,7 @@
         @include lg{
             position: absolute;
             left: calc(50% + 15px);
-            top: 60px;
+            top: 104px;
             margin: 0;
             width: 570px;
         }
@@ -1620,13 +1574,13 @@
 
                 &:nth-child(2){
                     @include lg{
-                        margin-top: 120px;
+                        margin-top: 160px;
                     }
                 }
 
                 &:nth-child(3){
                     @include lg{
-                        margin-top: 240px;
+                        margin-top: 320px;
                     }
                 }
 
@@ -1638,7 +1592,7 @@
                     }
 
                     @include lg{
-                        margin-top: 363px;
+                        margin-top: 478px;
                         margin-right: 0!important;
                     }
                 }
@@ -1646,7 +1600,7 @@
                 &:nth-child(5) {
                     @include lg {
                         margin-left: 300px;
-                        margin-top: -120px;
+                        margin-top: -160px;
                     }
                 }
 
@@ -1658,7 +1612,7 @@
 
                 &:nth-child(7) {
                     @include lg {
-                        margin-top: 120px;
+                        margin-top: 160px;
                     }
                     .border-left-bottom, .border-right-bottom {
                         height: 310px;
