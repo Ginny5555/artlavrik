@@ -151,8 +151,12 @@
                         border-right: 2px solid #F3F3F4;
                     }
 
-                    @include sm{
+                    &:hover a{
+                        color: #C41F14;
+                    }
 
+                    &:active a{
+                        color: #EF7168;
                     }
                 }
 

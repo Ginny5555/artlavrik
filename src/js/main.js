@@ -205,6 +205,16 @@ exploreProductsBtn?.addEventListener("click", e => {
 })
 
 
+const contactUsBtn = document.querySelector('[data-role="contact-btn"]');
+if (contactUsBtn) {
+    contactUsBtn.addEventListener("click", e => {
+        e.preventDefault();
+        contactForm.classList.add('opened');
+        body.classList.add("noscroll");
+    })
+}
+
+
 var checkList = document.getElementsByClassName('dropdown');
 Array.from(checkList).forEach(el => el.addEventListener('change', function (e) {
     var chk = e.target
@@ -266,9 +276,13 @@ contactForm.querySelector('form').onsubmit = async (e) => {
         });
         if (response.ok) {
             e.target.parentElement.classList.add("hide");
-            e.target.parentElement.nextSibling.classList.remove('hide');
+            e.target.parentElement.nextSiblin.nextSibling.classList.remove('hide');
+            resetForm(contactForm.querySelector('form'));
         } else {
-            alert("Error, please try again")
+            e.target.parentElement.classList.add("hide");
+            e.target.parentElement.nextSibling.nextSibling.classList.remove('hide');
+            resetForm(contactForm.querySelector('form'));
+            /*alert("Error, please try again")*/
         }
     }
 };
@@ -316,13 +330,21 @@ if (joinForm) {
             });
             if (response.ok) {
                 e.target.parentElement.classList.add("hide");
-                e.target.parentElement.nextSibling.classList.remove('hide');
+                e.target.parentElement.nextSibling.nextSibling.classList.remove('hide');
+                resetForm(joinForm.querySelector('form'));
             } else {
                 alert("Error, please try again")
             }
         }
     };
 
+}
+
+function resetForm(form){
+    form.reset();
+    let formCheckList = form.querySelectorAll('.dropdown ul li');
+    console.log(formCheckList)
+    Array.from(formCheckList).forEach(el => el.classList.remove('active'))
 }
 // TABS
 const tabs = document.querySelectorAll("[data-tab]");
