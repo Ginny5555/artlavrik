@@ -14,6 +14,7 @@ const enableTeamSlider = () => {
         modules: [Pagination],
         slidesPerView: 'auto',
         spaceBetween: 9,
+        cssMode: true,
         breakpoints: {
             768: {
                 spaceBetween: 20
@@ -32,7 +33,7 @@ const teamSlider = () => {
     if(teamSliderBreakpoint.matches){
         if(teamSliderInstance !== undefined) teamSliderInstance.destroy(true, true);
         return;
-    } else if(!teamSliderBreakpoint.matches){
+    } else if(!teamSliderBreakpoint.matches && document.querySelector(".team__slider .swiper") !== null){
         return enableTeamSlider();
     }
 }
@@ -53,6 +54,7 @@ const enableServicesSlider = () => {
         modules: [Pagination],
         slidesPerView: 'auto',
         spaceBetween: 9,
+        cssMode: true,
         pagination: {
             el: '.services__wrapper .swiper-pagination',
         },
@@ -63,7 +65,7 @@ const servicesSlider = () => {
     if(servicesSliderBreakpoint.matches){
         if(servicesSliderInstance !== undefined) servicesSliderInstance.destroy(true, true);
         return;
-    } else if(!servicesSliderBreakpoint.matches){
+    } else if(!servicesSliderBreakpoint.matches && document.querySelector(".services__wrapper .swiper") !== null){
         return enableServicesSlider();
     }
 }
@@ -419,7 +421,7 @@ const aboutSlider = () => {
     if(aboutSliderBreakpoint.matches){
         if(aboutSliderInstance !== undefined) aboutSliderInstance.destroy(true, true);
         return;
-    } else if(!aboutSliderBreakpoint.matches){
+    } else if(!aboutSliderBreakpoint.matches && document.querySelector(".product-about__slider .swiper") !== null){
         return enableAboutSlider();
     }
 }
@@ -448,7 +450,7 @@ const researchSlider = () => {
     if(researchSliderBreakpoint.matches){
         if(researchSliderInstance !== undefined) researchSliderInstance.destroy(true, true);
         return;
-    } else if(!researchSliderBreakpoint.matches){
+    } else if(!researchSliderBreakpoint.matches && document.querySelector(".product-research__slider .swiper") !== null){
         return enableResearchSlider();
     }
 }
