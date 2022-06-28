@@ -6,6 +6,15 @@ import 'swiper/css/grid';
 import { elementScrollIntoView } from "seamless-scroll-polyfill";
 
 
+//get viewport height
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+window.addEventListener('resize', () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+
+
 // TEAM SLIDER
 const teamSliderBreakpoint = window.matchMedia('(min-width: 1280px)');
 let teamSliderInstance;
@@ -278,13 +287,10 @@ contactForm.querySelector('form').onsubmit = async (e) => {
         });
         if (response.ok) {
             e.target.parentElement.classList.add("hide");
-            e.target.parentElement.nextSiblin.nextSibling.classList.remove('hide');
+            e.target.parentElement.nextSibling.classList.remove('hide');
             resetForm(contactForm.querySelector('form'));
         } else {
-            e.target.parentElement.classList.add("hide");
-            e.target.parentElement.nextSibling.nextSibling.classList.remove('hide');
-            resetForm(contactForm.querySelector('form'));
-            /*alert("Error, please try again")*/
+            alert("Error, please try again")
         }
     }
 };
@@ -332,7 +338,7 @@ if (joinForm) {
             });
             if (response.ok) {
                 e.target.parentElement.classList.add("hide");
-                e.target.parentElement.nextSibling.nextSibling.classList.remove('hide');
+                e.target.parentElement.nextSibling.classList.remove('hide');
                 resetForm(joinForm.querySelector('form'));
             } else {
                 alert("Error, please try again")

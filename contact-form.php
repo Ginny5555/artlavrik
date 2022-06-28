@@ -5,6 +5,7 @@ $desired = '';
 $name  = substr( $_POST['name'], 0, 64 );
 $email   = substr( $_POST['email'], 0, 64 );
 $message = substr( $_POST['message'], 0, 250 );
+$formName = substr( $_POST['name-form'], 0, 64 );
 
 if ( !empty( $_FILES['file']['tmp_name'] ) and $_FILES['file']['error'] == 0 ) {
 	$filepath = $_FILES['file']['tmp_name'];
@@ -14,61 +15,61 @@ if ( !empty( $_FILES['file']['tmp_name'] ) and $_FILES['file']['error'] == 0 ) {
 	$filename = '';
 }
 
-$body = "Name:\r\n".$name."\r\n\r\n";
-$body .= "E-mail:\r\n".$email."\r\n\r\n";
-$body .= "About project:\r\n".$message."\r\n\r\n";
-
 if($formName == 'contact-us' ) {
 	$formName = 'Форма Contact Us Artlavrik.com';
 	if ( !empty( $_POST['NativeApp'] ) ) {
-		$desired  .= "Native app, ";
+		$desired  .= "#Native app ";
 	}
 	if ( !empty( $_POST['Ecommerce'] ) ) {
-		$desired  .= "Ecommerce, ";
+		$desired  .= "#Ecommerce ";
 	}
 	if ( !empty( $_POST['Design'] ) ) {
-		$desired  .= "Design System, ";
+		$desired  .= "#Design System ";
 	}
 	if ( !empty( $_POST['SAAS'] ) ) {
-		$desired  .= "SAAS, ";
+		$desired  .= "#SAAS ";
 	}
 	if ( !empty( $_POST['Fintech'] ) ) {
-		$desired  .= "Fintech, ";
+		$desired  .= "#Fintech ";
 	}
 	if ( !empty( $_POST['Crypto'] ) ) {
-		$desired  .= "Crypto, ";
+		$desired  .= "#Crypto ";
 	}
 	if ( !empty( $_POST['Other'] ) ) {
-		$desired  .= "Other ";
+		$desired  .= "#Other ";
 	}
-	$body .= "Desired category:\r\n".$desired;
+	$body = "Hashtags: ".$desired;
 }
 
 if($formName == 'join-team' ) {
-	$formName = 'Форма Join Us Artlavrik.com';
+	$formName = 'Форма Join team Artlavrik.com';
 	if ( !empty( $_POST['ui-design'] ) ) {
-		$desired  .= "ui-design, ";
+		$desired  .= "#ui-design ";
 	}
 	if ( !empty( $_POST['ux-design'] ) ) {
-		$desired  .= "ux-design, ";
+		$desired  .= "#ux-design ";
 	}
 	if ( !empty( $_POST['managment'] ) ) {
-		$desired  .= "managment, ";
+		$desired  .= "#managment ";
 	}
 	if ( !empty( $_POST['sales'] ) ) {
-		$desired  .= "sales, ";
+		$desired  .= "#sales ";
 	}
 	if ( !empty( $_POST['code'] ) ) {
-		$desired  .= "code, ";
+		$desired  .= "#code ";
 	}
 	if ( !empty( $_POST['testing'] ) ) {
-		$desired  .= "testing, ";
+		$desired  .= "#testing ";
 	}
 	if ( !empty( $_POST['other'] ) ) {
-		$desired  .= "other ";
+		$desired  .= "#other ";
 	}
-	$body .= "Join category:\r\n".$desired;
+	$body = "Hashtags: ".$desired;
 }
+
+$body .= "\r\n\r\nName: ".$name."\r\n\r\n";
+$body .= "E-mail: ".$email."\r\n\r\n";
+$body .= "About project: ".$message."\r\n\r\n";
 
 send_mail($to, $body, $email, $filepath, $filename, $formName);
 
