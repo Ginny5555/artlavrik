@@ -87,8 +87,11 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
-            title: "Creating Digital Services",
+            title: "Design Digital Services",
             page: "index",
+            ogTitle: "Design digital services since 2019",
+            ogImage: "/images/logo.svg",
+            ogDescription: "Hi, we are a group of enthusiasts who make design their main life idea. Performing creativity in the engineering process, we provide our customers with effective and aesthetic solutions. Besides, we offer our business analyses expertise to get the closest interaction with customers, understanding and evaluating their goals.",
             template: 'src/templates/index.hbs',
             filename: 'index.html',
             inject: 'body',
@@ -98,6 +101,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "XRave",
             page: "xrave",
+            ogTitle: "Online banking + cryptocurrency exchange",
+            ogImage: "/images/logo.svg",
+            ogDescription: "Иксрейв представляет из себя биржу криптовалют на которой ты можешь обменивать свои ассеты, хранить и тратить их при помощи своей платисковой карты.",
             template: 'src/templates/xrave-page.hbs',
             filename: 'xrave-page.html',
             inject: 'body',
@@ -107,6 +113,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "StreamBet",
             page: "streambet",
+            ogTitle: "Multidisciplinary betting and streaming platform",
+            ogImage: "/images/logo.svg",
+            ogDescription: "Стримбет это платформа для быстрых ставок, суть заключается в то что юзер смотрит любимые события(киберспорт или обычный спорт), либо конкретного стримера. В течении стрима появляются моментальные ставки на которые юзер отвечает только да или нет. Сума выигрыша зависит от ого сколько еще человек поставило на тот или иной исход. Так же в платформе присутствует стандартная линия ставок.",
             template: 'src/templates/streambet-page.hbs',
             filename: 'streambet-page.html',
             inject: 'body',
