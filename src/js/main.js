@@ -50,10 +50,6 @@ teamSliderBreakpoint.addListener(teamSlider);
 teamSlider();
 
 
-
-
-
-
 // SERVICES SLIDER
 const servicesSliderBreakpoint = window.matchMedia('(min-width: 960px)');
 let servicesSliderInstance;
