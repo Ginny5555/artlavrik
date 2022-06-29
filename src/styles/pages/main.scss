@@ -2358,7 +2358,7 @@
         &-dialog {
             flex-flow: column;
             display: flex;
-            height: calc(var(--vh, 1vh) * 100);
+            height: var(--vh);
 
             @include sm {
                 height: 100%;
@@ -2370,7 +2370,7 @@
         }
 
         &-success {
-            height: calc(var(--vh, 1vh) * 100);
+            height: var(--vh);
             width: 100%;
             align-items: center;
             justify-content: center;
