@@ -211,14 +211,12 @@ exploreProductsBtn?.addEventListener("click", e => {
 })
 
 
-const contactUsBtn = document.querySelector('[data-role="contact-btn"]');
-if (contactUsBtn) {
-    contactUsBtn.addEventListener("click", e => {
-        e.preventDefault();
-        contactForm.classList.add('opened');
-        body.classList.add("noscroll");
-    })
-}
+const contactUsBtn = document.querySelectorAll('[data-role="contact-btn"]');
+Array.from(contactUsBtn).forEach(el => el.addEventListener("click", e => {
+    e.preventDefault();
+    contactForm.classList.add('opened');
+    body.classList.add("noscroll");
+}))
 
 
 var checkList = document.getElementsByClassName('dropdown');

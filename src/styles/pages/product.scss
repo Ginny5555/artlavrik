@@ -879,7 +879,6 @@
         .head {
             display: flex;
             align-self: center;
-            flex-flow: column;
             justify-content: space-between;
 
             h2{
@@ -1048,6 +1047,8 @@
             }
 
             .head {
+                flex-flow: column;
+
                 @include sm {
                     display: none;
                 }
