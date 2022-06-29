@@ -403,25 +403,11 @@
                     }
                 }
 
-                .product__explore{
-
-                    @include sm{
-                        color: $grey-beach;
-                    }
+                .product__explore.soon{
+                    color: $secondary-text;
 
                     svg path{
-                        @include sm{
-                            stroke: $grey-beach;
-                        }
-                    }
-
-                    &.soon {
-                        svg path{
-                            @include sm{
-                                stroke: none;
-                                fill: $grey-beach;
-                            }
-                        }
+                        fill: $secondary-text;
                     }
                 }
             }

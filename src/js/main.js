@@ -1,9 +1,10 @@
-import Swiper, { Pagination, Grid} from 'swiper';
+import Swiper, { Pagination, Grid } from 'swiper';
 import 'animate.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/grid';
 import { elementScrollIntoView } from "seamless-scroll-polyfill";
+import $ from "jquery";
 
 
 //get viewport height
