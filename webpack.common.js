@@ -81,7 +81,7 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
-            title: "Design Digital Services",
+            title: "Stas Lavrik Design",
             page: "index",
             ogTitle: "Design digital services since 2019",
             ogImage: "/images/logo.jpg",
