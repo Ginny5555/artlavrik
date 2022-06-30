@@ -926,11 +926,9 @@
                     padding: 24px;
                     background-color: $white;
 
-                    &:not(:first-child) {
-                        .about,
-                        .bio {
-                            filter: blur(6px);
-                        }
+                    .about,
+                    .bio {
+                        filter: blur(6px);
                     }
 
                     @include sm {
@@ -1038,16 +1036,15 @@
 
         &__cjm {
             margin-top: 24px;
-            padding: 20px;
             background-color: $white;
 
             @include sm {
                 margin-top: 0;
-                padding: 0;
             }
 
             .head {
                 flex-flow: column;
+                padding: 24px 24px 12px;
 
                 @include sm {
                     display: none;
@@ -1229,6 +1226,10 @@
                     margin-top: 0;
                 }
 
+                &:nth-child(7) {
+                    margin-top: 60px;
+                }
+
                 @include sm {
                     display: flex;
                     margin-top: 180px;
@@ -1268,6 +1269,8 @@
                     }
 
                     &:nth-child(7) {
+                        margin-top: 180px;
+
                         img {
                             max-width: calc(100% - 180px);
                         }
@@ -1302,6 +1305,8 @@
                     }
 
                     &:nth-child(7){
+                        margin-top: 220px;
+
                         img {
                             max-width: none;
                         }
@@ -1366,6 +1371,10 @@
                                 margin-top: 240px!important;
                             }
                         }
+                    }
+
+                    &:nth-child(7) {
+                        margin-top: 240px;
                     }
 
                     &:nth-child(8) {
@@ -1741,7 +1750,7 @@
         &__hash {
             margin-top: 36px;
             display: flex;
-            column-gap: 10px;
+            column-gap: 8px;
 
             @include sm {
                 margin-top: 36px;
@@ -1761,15 +1770,19 @@
             .item {
                 display: flex;
                 background: rgba(54, 178, 234, 0.1);
-                padding: 4px 0;
+                padding: 4px 12px;
                 justify-content: center;
                 align-items: center;
-                width: 100%;
+
+                @include sm {
+                    width: 100%;
+                    padding: 4px 0;
+                }
 
                 svg {
                     width: 16px;
                     height: 14px;
-                    margin-right: 6px;
+                    margin-right: 4px;
                 }
 
                 p {
