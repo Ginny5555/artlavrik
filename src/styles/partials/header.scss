@@ -83,7 +83,7 @@
                     display: flex;
                     align-items: center;
                     width: calc(100% - 48px);
-                    background-color: #202831;
+                    background-color: $primary-text;
                     color: $white;
                     padding-left: 20px;
 
@@ -100,10 +100,10 @@
                     }
 
                     &:hover{
-                        background-color: #C41F14;
+                        background-color: $hover;
 
                         a{
-                            color: #FFFFFF;
+                            color: $white;
                         }
                     }
 
@@ -152,7 +152,7 @@
                     }
 
                     &:hover a{
-                        color: #C41F14;
+                        color: $hover;
                     }
 
                     &:active a{

@@ -482,7 +482,7 @@
         }
 
         &.disabled {
-            color: #9AA2AC;
+            color: $secondary-text;
             cursor: auto;
             pointer-events: none;
 
@@ -589,7 +589,7 @@
                                 @include md{
                                     width: 481px;
                                     height: 481px;
-                                    background-color: #CBD3DD;
+                                    background-color: $grey-beach;
                                     opacity: 0.4;
                                     transform: rotate(-45deg) translateY(calc(-50% - 100px));
                                     left: 36px;
@@ -998,7 +998,7 @@
             bottom: 0;
             width: 100%;
             height: 315px;
-            background-color: #E5E9EE;
+            background-color: $grey-low;
             transform: skewY(8deg);
             transform-origin: right top;
             z-index: -1;
@@ -1018,7 +1018,7 @@
             bottom: 0;
             width: 100%;
             height: 303px;
-            background-color: #E5E9EE;
+            background-color: $grey-low;
             z-index: -1;
         }
 
@@ -1362,7 +1362,7 @@
                     }
 
                     &:hover + .principles-card__bottom{
-                        transition: opacity .3s ease-in;
+                        transition: opacity $hover-transition-length ease-in;
                         opacity: 1;
                     }
                 }
@@ -1645,7 +1645,7 @@
                     background-position-y: bottom;
                     background-repeat: no-repeat;
                     filter: grayscale(1);
-                    transition: filter 0.3s ease-in-out;
+                    transition: filter $hover-transition-length ease-in-out;
                 }
 
                 &:hover {
@@ -1810,24 +1810,24 @@
 
                 &:hover {
                     .border {
-                        border-color: #C41F14;
+                        border-color: $hover;
                     }
                     .border-left-top, .border-right-top, .border-left-bottom, .border-right-bottom {
-                        background-color: #C41F14;
+                        background-color: $hover;
                     }
 
                     span {
-                        color: #C41F14;
+                        color: $hover;
                     }
 
                     svg path {
-                        fill: #C41F14;
+                        fill: $hover;
                     }
                 }
 
                 &:active {
                     .border {
-                        border-color: #EF7168;
+                        border-color: $pressed;
                     }
                     .border-left-top, .border-right-top, .border-left-bottom, .border-right-bottom {
                         background-color: #EF7168;
@@ -1970,7 +1970,7 @@
         &-header {
             padding: 12px 15px;
             display: flex;
-            border-bottom: 1px solid #E5E9EE;
+            border-bottom: 1px solid $grey-low;
 
             @include sm {
                 padding: 32px 34px;
@@ -2004,7 +2004,7 @@
                     font-weight: 600;
                     font-size: 18px;
                     line-height: 28px;
-                    color: #202831;
+                    color: $primary-text;
 
                     @include sm {
                         font-size: 24px;
@@ -2016,7 +2016,7 @@
                     font-weight: 400;
                     font-size: 14px;
                     line-height: 20px;
-                    color: #9AA2AC;
+                    color: $secondary-text;
                     letter-spacing: 0.01em;
 
                     @include sm {
@@ -2026,7 +2026,7 @@
                     }
 
                     a {
-                        color: #36B2EA;
+                        color: $secondary;
 
                         &:hover {
                             text-decoration: underline;
@@ -2044,7 +2044,7 @@
 
                 &:hover {
                     path {
-                        fill: #C41F14;
+                        fill: $hover;
                     }
                 }
 
@@ -2075,7 +2075,7 @@
                 font-weight: 600;
                 font-size: 18px;
                 line-height: 28px;
-                color: #202831;
+                color: $primary-text;
             }
 
             .list {
@@ -2103,7 +2103,7 @@
                     }
 
                     &:hover {
-                        background: #EA4136;
+                        background: $link;
 
                         svg path {
                             fill: rgba(255,255,255,0.5);
@@ -2120,7 +2120,7 @@
                         min-width: 16px;
 
                         path {
-                            fill: #EA4136;
+                            fill: $link;
                         }
                     }
 
@@ -2140,14 +2140,14 @@
                         font-size: 18px;
                         line-height: 28px;
                         font-weight: 400;
-                        color: #202831;
+                        color: $primary-text;
                     }
 
                     &.active {
-                        background: #36B2EA;
+                        background: $secondary;
 
                         label {
-                            color: #FFFFFF;
+                            color: $white;
                         }
 
                         svg path{
@@ -2161,11 +2161,11 @@
                             height: 12px;
                             top: 4px;
                             left: 4px;
-                            background-color: #EA4136;
+                            background-color: $link;
                         }
 
                         &:hover {
-                            background: #EA4136;
+                            background: $link;
 
                             svg path {
                                 fill: rgba(255,255,255,0.5);
@@ -2200,18 +2200,18 @@
                     font-style: normal;
                     font-weight: 400;
                     font-size: 16px;
-                    color: #9AA2AC;
+                    color: $secondary-text;
                     position: absolute;
                     top: 12px;
                     left: 16px;
-                    transition: all 0.3s ease-in-out;
+                    transition: all $hover-transition-length ease-in-out;
                     pointer-events: none;
 
                     &.filled {
                         font-weight: 600;
                         font-size: 12px;
                         line-height: 16px;
-                        color: #9AA2AC;
+                        color: $secondary-text;
                         top: -20px;
                         left: 0;
                     }
@@ -2221,7 +2221,7 @@
                     font-weight: 600;
                     font-size: 12px;
                     line-height: 16px;
-                    color: #E83F33;
+                    color: $error;
                     position: absolute;
                     top: -20px;
                     right: -0;
@@ -2230,7 +2230,7 @@
 
                 &.error {
                     input {
-                        border: 1px solid #E83F33;
+                        border: 1px solid $error;
                     }
 
                     span {
@@ -2246,26 +2246,26 @@
                 font-weight: 400;
                 font-size: 16px;
                 line-height: 24px;
-                color: #202831;
+                color: $primary-text;
                 width: 100%;
                 border: 1px solid #F3F3F4;
 
                 &:hover {
-                    color: #202831;
+                    color: $primary-text;
 
                     & + label {
-                        color: #202831;
+                        color: $primary-text;
                     }
                 }
 
                 &:focus {
-                    border: 1px solid #36B2EA;
+                    border: 1px solid $secondary;
 
                     + label {
                         font-weight: 600;
                         font-size: 12px;
                         line-height: 16px;
-                        color: #9AA2AC;
+                        color: $secondary-text;
                         top: -20px;
                         left: 0;
                     }
@@ -2307,14 +2307,14 @@
                     font-weight: 600;
                     font-size: 16px;
                     line-height: 24px;
-                    color: #FFFFFF;
-                    background: #EA4136;
+                    color: $white;
+                    background: $link;
                     padding: 12px 0;
                 }
 
                 .submit {
                     &:hover {
-                        background: #C41F14;
+                        background: $hover;
                     }
                     &:active {
                         background: #EF7168;
@@ -2322,8 +2322,8 @@
                 }
 
                 .attach {
-                    color: #202831;
-                    background: #E5E9EE;
+                    color: $primary-text;
+                    background: $grey-low;
                     cursor: pointer;
 
                     input {
@@ -2341,10 +2341,10 @@
                         max-width: 75%;
                     }
                     &:hover {
-                        background: #CBD3DD;
+                        background: $grey-beach;
                     }
                     &:active {
-                        background: #CBD3DD;
+                        background: $grey-beach;
                         color: #fff;
 
                         svg path {
@@ -2405,7 +2405,7 @@
 
                 &:hover {
                     path {
-                        fill: #C41F14;
+                        fill: $hover;
                     }
                 }
 
@@ -2441,7 +2441,7 @@
                     font-weight: 600;
                     font-size: 18px;
                     line-height: 28px;
-                    color: #202831;
+                    color: $primary-text;
                     text-align: center;
 
                     @include sm {
@@ -2457,13 +2457,13 @@
                     font-size: 18px;
                     line-height: 28px;
                     letter-spacing: normal;
-                    color: #9AA2AC;
+                    color: $secondary-text;
                     text-align: center;
                 }
             }
 
             .success {
-                background: #EA4136;
+                background: $link;
                 padding: 8px 0;
                 font-weight: 600;
                 font-size: 14px;
@@ -2481,7 +2481,7 @@
                 }
 
                 &:hover {
-                    background: #C41F14;
+                    background: $hover;
                 }
 
                 &:active {

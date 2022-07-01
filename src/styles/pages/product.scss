@@ -176,6 +176,16 @@
                         font-size: 14px;
                         line-height: 20px;
 
+                        &:hover {
+                            color: $primary-text;
+
+                            svg {
+                                path{
+                                    fill: $primary-text;
+                                }
+                            }
+                        }
+
                         svg{
                             margin-left: 4px;
 
@@ -190,9 +200,29 @@
                             justify-content: start;
                             background-color: inherit;
 
+                            &:hover {
+                                color: $hover;
+
+                                svg {
+                                    path{
+                                        fill: $hover;
+                                    }
+                                }
+                            }
+
                             svg {
                                 path{
                                     fill: $link;
+                                }
+                            }
+
+                            &:active {
+                                color: $pressed;
+
+                                svg {
+                                    path{
+                                        fill: $pressed;
+                                    }
                                 }
                             }
                         }
@@ -907,6 +937,14 @@
                 @include sm {
                     display: block;
                 }
+
+                &:hover {
+                    background-color: $hover;
+                }
+
+                &:active {
+                    background-color: $pressed;
+                }
             }
         }
 
@@ -972,7 +1010,7 @@
                             font-weight: 600;
                             font-size: 16px;
                             line-height: 24px;
-                            color: #202831;
+                            color: $primary-text;
                         }
 
                         .item {
@@ -982,7 +1020,7 @@
                             font-weight: 400;
                             font-size: 16px;
                             line-height: 24px;
-                            color: #202831;
+                            color: $primary-text;
 
                             svg {
                                 width: 24px;
@@ -1000,7 +1038,7 @@
                             font-weight: 600;
                             font-size: 16px;
                             line-height: 24px;
-                            color: #202831;
+                            color: $primary-text;
                         }
 
                         .caption {
@@ -1008,7 +1046,7 @@
                             font-weight: 400;
                             font-size: 14px;
                             line-height: 20px;
-                            color: #9AA2AC;
+                            color: $secondary-text;
                         }
                     }
 
@@ -1092,6 +1130,14 @@
 
             @include sm {
                 display: none;
+            }
+
+            &:hover {
+                background-color: $hover;
+            }
+
+            &:active {
+                background-color: $pressed;
             }
         }
     }
@@ -1555,9 +1601,9 @@
 
                             .border {
                                 position: absolute;
-                                border-top: 25px solid #E5E9EE;
-                                border-left: 25px solid #E5E9EE;
-                                border-right: 25px solid #E5E9EE;
+                                border-top: 25px solid $grey-low;
+                                border-left: 25px solid $grey-low;
+                                border-right: 25px solid $grey-low;
                                 top: 0;
                                 left: 0;
                                 width: 100%;
