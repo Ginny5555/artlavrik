@@ -3,7 +3,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const WebpackFavicons = require("webpack-favicons");
-const webpack = require('webpack');
 
 const bundleFolder = 'dist';
 
@@ -95,9 +94,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "XRave",
             page: "xrave",
-            ogTitle: "Online banking + cryptocurrency exchange",
+            ogTitle: "Cryptocurrency exchange with banking accounts",
             ogImage: "/images/logo.jpg",
-            ogDescription: "Иксрейв представляет из себя биржу криптовалют на которой ты можешь обменивать свои ассеты, хранить и тратить их при помощи своей платисковой карты.",
+            ogDescription: "Xrave is a cryptocurrency exchange where you can exchange your assets, store and spend them using your plastic card.",
             template: 'src/templates/xrave-page.hbs',
             filename: 'xrave-page.html',
             inject: 'body',
@@ -109,7 +108,7 @@ module.exports = {
             page: "streambet",
             ogTitle: "Multidisciplinary betting and streaming platform",
             ogImage: "/images/logo.jpg",
-            ogDescription: "Стримбет это платформа для быстрых ставок, суть заключается в то что юзер смотрит любимые события(киберспорт или обычный спорт), либо конкретного стримера. В течении стрима появляются моментальные ставки на которые юзер отвечает только да или нет. Сума выигрыша зависит от ого сколько еще человек поставило на тот или иной исход. Так же в платформе присутствует стандартная линия ставок.",
+            ogDescription: "Streambet is a fast betting platform. Here you can easily bet on the outcome of your favorite e-sports and sports events. It’s also possible to place instant bets on broadcasts from a specific streamer. A user who participates in an instant bet answers only \"Yes\" or \"No\". In case of a win, the user will receive an amount that will depend on how many more people have bet on a particular outcome.",
             template: 'src/templates/streambet-page.hbs',
             filename: 'streambet-page.html',
             inject: 'body',
