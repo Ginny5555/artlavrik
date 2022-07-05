@@ -242,6 +242,10 @@ $('.input-group *').on("change paste keyup", function() {
         $(this).next().removeClass('filled');
     }
 })
+window.auto_grow = function auto_grow(element) {
+    element.style.height = "50px";
+    element.style.height = (element.scrollHeight)+"px";
+}
 $('input[type="file"]').on('change', function () {
     $(this).next().html($(this)[0].files[0].name)
 })

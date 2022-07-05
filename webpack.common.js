@@ -118,7 +118,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "CentroBill",
             page: "centrobill",
-            ogTitle: "Multidisciplinary betting and streaming platform",
+            ogTitle: "Processing service CentroBill",
             ogImage: "/images/logo.jpg",
             ogDescription: "CentroBill is a fast B2B platform. Here you can easily bet on the outcome of your favorite e-sports and sports events. It’s also possible to place instant bets on broadcasts from a specific streamer. A user who participates in an instant bet answers only \"Yes\" or \"No\". In case of a win, the user will receive an amount that will depend on how many more people have bet on a particular outcome.",
             template: 'src/templates/centrobill-page.hbs',
@@ -130,7 +130,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "Exrates",
             page: "exrates",
-            ogTitle: "Multidisciplinary betting and streaming platform",
+            ogTitle: "Platform for cryptocurrency exchange Exrates 2.0",
             ogImage: "/images/logo.jpg",
             ogDescription: "Cryptocurrency exchange, top-20 coinmarketcup 2018. Fast and inuitive solution for traders from all world. Exrates is the easiest place to buy, sell and trade digital currencies, including Bitcoin, Ethereum, XRP, BNB, Zcash and many more.",
             template: 'src/templates/exrates-page.hbs',

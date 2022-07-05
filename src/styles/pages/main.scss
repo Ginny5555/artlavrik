@@ -2273,10 +2273,12 @@
             }
 
             textarea {
-                height: 140px;
+                height: 50px;
+                min-height: 50px;
                 resize: none;
                 margin-bottom: 24px;
-                min-height: 140px;
+                overflow: hidden;
+                max-height: 140px;
 
                 @include md {
                     margin-bottom: 0;
