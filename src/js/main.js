@@ -438,9 +438,7 @@ const enableResearchSlider = () => {
     researchSliderInstance = new Swiper(".product-research__slider .swiper", {
         modules: [Pagination, Grid],
         slidesPerView: 1,
-        grid: {
-            rows: 3,
-        },
+        cssMode: true,
         spaceBetween: 16,
         pagination: {
             el: '.product-research__slider .swiper-pagination',

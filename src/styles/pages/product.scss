@@ -830,36 +830,51 @@
                 }
                 &-slide {
                     display: flex;
-                    column-gap: 24px;
-                    padding: 24px;
-                    background-color: $white;
+                    flex-flow: column;
+                    row-gap: 16px;
+
+                    &:nth-child(n + 3) {
+                        display: none;
+                    }
 
                     @include sm {
                         flex-shrink: inherit;
                         width: calc(50% - 10px);
                         height: auto;
+                        column-gap: 24px;
+                        padding: 24px;
+                        background-color: $white;
+                        flex-flow: row;
 
-                        &:nth-child(1),
-                        &:nth-child(2),
+                        &:nth-child(-n + 3) {
+                            display: none;
+                        }
+
+                        &:nth-child(n + 3) {
+                            display: flex;
+                        }
+
+                        &:nth-child(3),
                         &:nth-child(4),
-                        &:nth-child(5) {
+                        &:nth-child(6),
+                        &:nth-child(7) {
                             order: 1;
                         }
-                        &:nth-child(3),
-                        &:nth-child(6) {
+                        &:nth-child(5),
+                        &:nth-child(8) {
                             order: 2;
                         }
                     }
 
                     @include md {
-                        &:nth-child(1),
                         &:nth-child(3),
-                        &:nth-child(4) {
-                            order: 1;
-                        }
-                        &:nth-child(2),
                         &:nth-child(5),
                         &:nth-child(6) {
+                            order: 1;
+                        }
+                        &:nth-child(4),
+                        &:nth-child(7),
+                        &:nth-child(8) {
                             order: 2;
                         }
                     }
@@ -867,20 +882,27 @@
                     @include lg {
                         width: calc((100% - 60px) / 3);
 
-                        &:nth-child(1),
-                        &:nth-child(4) {
+                        &:nth-child(3),
+                        &:nth-child(6) {
                             order: 1;
                         }
 
-                        &:nth-child(2),
-                        &:nth-child(6) {
+                        &:nth-child(4),
+                        &:nth-child(8) {
                             order: 2;
                         }
 
-                        &:nth-child(3),
-                        &:nth-child(5) {
+                        &:nth-child(5),
+                        &:nth-child(7) {
                             order: 3;
                         }
+                    }
+
+                    .item {
+                        display: flex;
+                        column-gap: 24px;
+                        padding: 24px;
+                        background-color: $white;
                     }
                 }
                 &-pagination {
