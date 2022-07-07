@@ -1055,6 +1055,7 @@
                         top: 100%;
                         left: 50%;
                         display: none;
+                        height: auto;
 
                         @include sm {
                             display: block;
