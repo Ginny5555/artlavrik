@@ -199,7 +199,7 @@ const setProductsWrapperHeight = () => {
             productsWrapper.style.maxHeight = `${productsWrapper.scrollHeight}px`;
         }
     } else {
-        productsWrapper.style.maxHeight = "unset";
+        if (productsWrapper) productsWrapper.style.maxHeight = "unset";
     }
 }
 setProductsWrapperHeight();
@@ -283,9 +283,8 @@ contactForm.querySelector('form').onsubmit = async (e) => {
             body: new FormData(contactForm.querySelector('form'))
         });
         if (response.ok) {
-            e.target.parentElement.classList.add("hide");
-            e.target.parentElement.nextSibling.classList.remove('hide');
             resetForm(contactForm.querySelector('form'));
+            location.href = "/success.html";
         } else {
             alert("Error, please try again")
         }
@@ -334,9 +333,8 @@ if (joinForm) {
                 body: new FormData(joinForm.querySelector('form'))
             });
             if (response.ok) {
-                e.target.parentElement.classList.add("hide");
-                e.target.parentElement.nextSibling.classList.remove('hide');
                 resetForm(joinForm.querySelector('form'));
+                location.href = "/success.html";
             } else {
                 alert("Error, please try again")
             }
@@ -405,6 +403,7 @@ const enableAboutSlider = () => {
     aboutSliderInstance = new Swiper(".product-about__slider .swiper", {
         modules: [Pagination],
         slidesPerView: 'auto',
+        cssMode: true,
         spaceBetween: 9,
         breakpoints: {
             768: {
@@ -465,6 +464,7 @@ researchSlider();
 const productTeamSlider = new Swiper(".product-team__slider .swiper", {
     slidesPerView: 1,
     spaceBetween: 20,
+    cssMode: true,
     breakpoints: {
         768: {
             slidesPerView: 'auto'
@@ -480,6 +480,7 @@ const designSlider = new Swiper(".product-design__slider .swiper", {
     modules: [Pagination],
     slidesPerView: 1,
     spaceBetween: 20,
+    cssMode: true,
     breakpoints: {
         768: {
             slidesPerView: 'auto'

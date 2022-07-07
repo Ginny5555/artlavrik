@@ -1,0 +1,12 @@
+﻿{{#[helpers/layout] htmlWebpackPlugin}}
+    <section class="success-block">
+        <img src="images/success.svg" alt="success">
+        <p class="title">Thanks for your request</p>
+        <p class="font-titanium caption">We'll be in touch</p>
+        <a class="success-btn font-titanium" href="/">Got it, back to main</a>
+    </section>
+    <script type="application/javascript">
+        document.querySelector("body").classList.add("success");
+        setTimeout(() => { location.href = "/" }, 3000);
+    </script>
+{{/[helpers/layout]}}

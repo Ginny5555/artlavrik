@@ -92,7 +92,7 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
-            title: "XRave",
+            title: "XRave - Cryptocurrency exchange with banking accounts",
             page: "xrave",
             ogTitle: "Cryptocurrency exchange with banking accounts",
             ogImage: "/images/logo.jpg",
@@ -104,7 +104,7 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
-            title: "StreamBet",
+            title: "StreamBet - Multidisciplinary betting and streaming platform",
             page: "streambet",
             ogTitle: "Multidisciplinary betting and streaming platform",
             ogImage: "/images/logo.jpg",
@@ -116,7 +116,7 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
-            title: "CentroBill",
+            title: "CentroBill - Processing service CentroBill",
             page: "centrobill",
             ogTitle: "Processing service CentroBill",
             ogImage: "/images/logo.jpg",
@@ -128,13 +128,25 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
-            title: "Exrates",
+            title: "Exrates - Cryptocurrency exchange Exrates 2.0",
             page: "exrates",
             ogTitle: "Platform for cryptocurrency exchange Exrates 2.0",
             ogImage: "/images/logo.jpg",
             ogDescription: "Cryptocurrency exchange, top-20 coinmarketcup 2018. Fast and inuitive solution for traders from all world. Exrates is the easiest place to buy, sell and trade digital currencies, including Bitcoin, Ethereum, XRP, BNB, Zcash and many more.",
             template: 'src/templates/exrates-page.hbs',
             filename: 'exrates-page.html',
+            inject: 'body',
+            hash: false
+        }),
+
+        new HtmlWebpackPlugin({
+            title: "Thanks for your request",
+            page: "success",
+            ogTitle: "Design digital services since 2019",
+            ogImage: "/images/logo.jpg",
+            ogDescription: "Hi, we are a group of enthusiasts who make design their main life idea. Performing creativity in the engineering process, we provide our customers with effective and aesthetic solutions. Besides, we offer our business analyses expertise to get the closest interaction with customers, understanding and evaluating their goals.",
+            template: 'src/templates/success.hbs',
+            filename: 'success.html',
             inject: 'body',
             hash: false
         }),
