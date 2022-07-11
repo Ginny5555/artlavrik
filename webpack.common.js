@@ -140,6 +140,18 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
+            title: "RaveOs - FEATURED MINING OS",
+            page: "raveos",
+            ogTitle: "FEATURED MINING OS",
+            ogImage: "/images/logo.jpg",
+            ogDescription: "Only real enthusiasts were able to set up and adapt programs for the process of mining crypto coins. Third-party, albeit universal, programs didn’t provide the proper efficiency of cryptomining, so more and more improvements appeared. EthOS, SimpleMining and Awesome Miner have become the fruit of long work on the development of mining. Thus, the main hype happened, there was a huge demand for high-quality mining programs. Now there are several new programs for mining.",
+            template: 'src/templates/raveos.hbs',
+            filename: 'raveos.html',
+            inject: 'body',
+            hash: false
+        }),
+
+        new HtmlWebpackPlugin({
             title: "Thanks for your request",
             page: "success",
             ogTitle: "Design digital services since 2019",
