@@ -343,7 +343,7 @@
                 }
             }
         }
-        
+
         &__typography {
             @include lg {
                 width: 470px;
@@ -2588,6 +2588,9 @@
 
         &__button {
             margin-top: 36px;
+        }
+        .lined-title{
+            display: none;
         }
     }
 }

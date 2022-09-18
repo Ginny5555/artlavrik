@@ -1,0 +1,573 @@
+@import "../helpers/mixins";
+@import "../helpers/variables";
+
+.products{
+    padding-top: 52px;
+
+    @include sm{
+        padding-top: 70px;
+    }
+
+    @include md{
+        padding-top: 95px;
+    }
+
+    @include lg{
+        padding-top: 105px;
+    }
+
+    &__wrapper{
+        row-gap: 24px;
+        margin-top: 40px;
+        transition: max-height $hover-transition-length ease-in-out;
+        max-height: 938px;
+        overflow: hidden;
+        @include sm{
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 20px;
+            column-gap: 20px;
+            margin: 58px auto 0;
+            height: 1445px;
+            max-height: unset!important;
+        }
+        @include md{
+            height: 1833px;
+        }
+
+        @include lg{
+            row-gap: 30px;
+            column-gap: 30px;
+            height: 2410px;
+        }
+
+        .product{
+            position: relative;
+            background-color: $white;
+            @include sm{
+                width: calc(50% - 10px);
+            }
+            @include lg{
+                width: calc(50% - 15px);
+            }
+
+            &:hover .product__content .product-explore{
+                @include lg{
+                    opacity: 1;
+                }
+            }
+            &:not(&:first-child){
+                margin-top: 24px;
+                @include sm{
+                    margin-top: 0;
+                }
+            }
+
+            &__content{
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                .product-title{
+                    font-weight: 600;
+                    font-size: 24px;
+                    line-height: 36px;
+                    @include md{
+                        font-size: 36px;
+                        line-height: 44px;
+                    }
+                }
+                .product-explore{
+                    display: flex;
+                    align-items: center;
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 24px;
+                    letter-spacing: 0.01em;
+                    color: $link;
+                    transition: opacity $hover-transition-length ease-in-out;
+                    z-index: 2;
+
+                    @include lg{
+                        opacity: 0;
+                    }
+
+                    svg{
+                        margin-left: 4px;
+                    }
+
+                    &.soon {
+                        color: $grey-beach;
+                        cursor: default;
+                        pointer-events: none;
+                        svg path{
+                            fill: $grey-beach;
+                        }
+                    }
+
+                    &:not(.soon) svg {
+                        @include lg{
+                            animation: arrow-hover 1s infinite ease-in-out;
+                        }
+                    }
+                }
+            }
+
+            &__link{
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+            }
+
+            &.baanx{
+                width: 100%;
+                height: 454px;
+                @include sm{
+                    height: 251px;
+                }
+                @include md{
+                    height: 320px;
+                }
+                @include lg{
+                    height: 420px;
+                }
+                .product__image{
+                    position: absolute;
+                    bottom: 0;
+                    width: 320px;
+                    height: 242px;
+                    right: 50%;
+                    transform: translateX(50%);
+                    @include sm{
+                        width: 379px;
+                        height: 223px;
+                        right: 30px;
+                        transform: none;
+                    }
+                    @include md{
+                        width: 437px;
+                        height: 290px;
+                        right: 80px;
+                    }
+                    @include lg{
+                        height: 354px;
+                        width: 581px;
+                        right: 86px;
+                    }
+                }
+                .product__content{
+                    align-items: center;
+                    top: 48px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 100%;
+                    @include sm{
+                        width: auto;
+                        transform: none;
+                    }
+                    @include md{
+                        left: 28px;
+                    }
+                    @include sm{
+                        align-items: flex-start;
+                        top: 32px;
+                        left: 32px;
+                    }
+                    @include lg{
+                        align-items: center;
+                        top: 104px;
+                        left: 97px;
+                    }
+                    .logo{
+                        width: 158px;
+                        height: 24px;
+                        @include sm{
+                            width: 238px;
+                            height: 36px;
+                        }
+                    }
+                    .product-title{
+                        font-weight: 600;
+                        font-size: 18px;
+                        line-height: 28px;
+                        margin-top: 12px;
+                        @include md{
+                            font-size: 24px;
+                            line-height: 36px;
+                        }
+                    }
+                    .product-store{
+                        display: flex;
+                        column-gap: 11px;
+                        margin-top: 12px;
+                        @include md{
+                            margin-top: 24px;
+                        }
+                        & > a{
+                            width: 92px;
+                            height: 28px;
+                            @include md{
+                                width: 112px;
+                                height: 34px;
+                            }
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                            }
+                        }
+                    }
+                    .product-explore{
+                        margin-top: 16px;
+                        @include sm{
+                            margin-top: 63px;
+                        }
+                        @include md{
+                            margin-top: 78px;
+                        }
+                        @include lg{
+                            margin-top: 44px;
+                        }
+                    }
+                }
+            }
+
+            &.streambet{
+                height: 460px;
+                padding: 32px;
+                @include sm{
+                    height: 453px;
+                }
+                @include md{
+                    height: 581px;
+                }
+                @include lg{
+                    height: 760px;
+                    width: 570px;
+                }
+                .product__image{
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 320px;
+                    height: 320px;
+                    @include md{
+                        width: 410px;
+                        height: 439px;
+                    }
+                    @include lg{
+                        width: 545px;
+                        height: 600px;
+                    }
+                }
+                .product__content{
+                    width: 210px;
+                    @include md{
+                        width: 345px;
+                    }
+                    .product-explore{
+                        margin-top: 24px;
+                    }
+                }
+            }
+
+            &.centrobill{
+                height: 345px;
+                padding: 32px;
+                @include sm{
+                    height: 340px;
+                }
+                @include md{
+                    height: 436px;
+                }
+                @include lg{
+                    height: 570px;
+                }
+                .product__image{
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 320px;
+                    height: 250px;
+                    @include md{
+                        width: 410px;
+                        height: 320px;
+                    }
+                    @include lg{
+                        width: 545px;
+                        height: 440px;
+                    }
+                }
+                .product__content{
+                    width: 187px;
+                    @include md{
+                        width: 374px;
+                    }
+                    .product-title{
+                        @media("max-width: 959px"){
+                            font-size: 18px;
+                            line-height: 28px;
+                        }
+                    }
+                    .product-explore{
+                        margin-top: 12px;
+                        @include md{
+                            margin-top: 28px;
+                        }
+                    }
+                }
+            }
+
+            &.xrave{
+                height: 345px;
+                padding: 32px;
+                @include sm{
+                    height: 340px;
+                }
+                @include md{
+                    height: 436px;
+                }
+                @include lg{
+                    height: 570px;
+                }
+                .product__image{
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 320px;
+                    height: 250px;
+                    @include md{
+                        width: 410px;
+                        height: 320px;
+                    }
+                    @include lg{
+                        width: 545px;
+                        height: 440px;
+                    }
+                }
+                .product__content{
+                    width: 187px;
+                    @include md{
+                        width: 374px;
+                    }
+                    .product-title{
+                        @media("max-width: 959px"){
+                            font-size: 18px;
+                            line-height: 28px;
+                        }
+                    }
+                    .product-explore{
+                        margin-top: 12px;
+                        @include md{
+                            margin-top: 28px;
+                        }
+                    }
+                }
+            }
+
+            &.exrates{
+                height: 460px;
+                padding: 32px;
+                @include sm{
+                    height: 453px;
+                    top: -113px;
+                }
+                @include md{
+                    height: 581px;
+                    top: -145px;
+                }
+                @include lg{
+                    height: 760px;
+                    top: -190px;
+                }
+                .product__image{
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 320px;
+                    height: 320px;
+                    @include md{
+                        width: 410px;
+                        height: 439px;
+                    }
+                    @include lg{
+                        width: 545px;
+                        height: 600px;
+                    }
+                }
+                .product__content{
+                    width: 210px;
+                    @include md{
+                        width: 345px;
+                    }
+                    .product-explore{
+                        margin-top: 24px;
+                    }
+                }
+            }
+
+            &.raveos{
+                height: 345px;
+                padding: 32px;
+                @include sm{
+                    height: 340px;
+                    top: -113px;
+                }
+                @include md{
+                    height: 436px;
+                    top: -145px;
+                }
+                @include lg{
+                    top: -190px;
+                    height: 570px;
+                }
+                .product__image{
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 195px;
+                    height: 255px;
+                    @include md{
+                        width: 286px;
+                        height: 316px;
+                    }
+                    @include lg{
+                        width: 420px;
+                        height: 450px;
+                    }
+                }
+                .product__content{
+                    width: 194px;
+                    @include md{
+                        width: 387px;
+                    }
+                    .product-title{
+                        @media("max-width: 959px"){
+                            font-size: 18px;
+                            line-height: 28px;
+                        }
+                    }
+                    .product-explore{
+                        margin-top: 12px;
+                        @include md{
+                            margin-top: 28px;
+                        }
+                    }
+                }
+            }
+
+            &.priceex{
+                height: 345px;
+                padding: 32px;
+                @include sm{
+                    height: 340px;
+                    top: -113px;
+                }
+                @include md{
+                    height: 436px;
+                    top: -145px;
+                }
+                @include lg{
+                    height: 570px;
+                    top: -190px;
+                }
+                .product__image{
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 195px;
+                    height: 255px;
+                    @include md{
+                        width: 286px;
+                        height: 316px;
+                    }
+                    @include lg{
+                        width: 420px;
+                        height: 450px;
+                    }
+                }
+                .product__content{
+                    width: 192px;
+                    @include md{
+                        width: 383px;
+                    }
+                    .product-title{
+                        @media("max-width: 959px"){
+                            font-size: 18px;
+                            line-height: 28px;
+                        }
+                    }
+                    .product-explore{
+                        margin-top: 12px;
+                        @include md{
+                            margin-top: 28px;
+                        }
+                    }
+                }
+            }
+
+            &.disabled {
+                a.product__explore {
+                    display: none;
+                }
+                .product__link{
+                    cursor: default;
+                    pointer-events: none;
+                }
+                .soon {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+
+    &__button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 36px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: 24px;
+        letter-spacing: 0.01em;
+        background-color: $grey-low;
+        transition: all $hover-transition-length ease-in-out;
+
+        @include sm{
+            display: none;
+            width: 149px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 32px;
+        }
+
+        @include lg{
+            width: 182px;
+            height: 48px;
+            margin-top: 44px;
+        }
+
+        &:hover{
+            background-color: $grey-beach;
+        }
+
+        &.disabled {
+            color: $secondary-text;
+            cursor: auto;
+            pointer-events: none;
+
+            &:hover{
+                background-color: $grey-low;
+            }
+        }
+
+        svg{
+            margin-left: 4px;
+        }
+    }
+}
