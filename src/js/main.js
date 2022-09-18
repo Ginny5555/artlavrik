@@ -187,26 +187,13 @@ if (mainBannerLink) {
     })
 }
 
-const exploreProductsBtn = document.querySelector('a[data-role="products"]');
+const exploreProductsBtn = document.querySelector('button[data-role="products"]');
 const productsWrapper = document.querySelector(".products .products__wrapper");
 
-const setProductsWrapperHeight = () => {
-    const mobileBreakpoint = window.matchMedia('(max-width: 767px)');
-    if(mobileBreakpoint.matches){
-        if(!productsWrapper.classList.contains("opened")){
-            productsWrapper.style.maxHeight = `${productsWrapper.children[0].offsetHeight + productsWrapper.children[1].offsetHeight + 24}px`;
-        } else {
-            productsWrapper.style.maxHeight = `${productsWrapper.scrollHeight}px`;
-        }
-    } else {
-        if (productsWrapper) productsWrapper.style.maxHeight = "unset";
-    }
-}
-setProductsWrapperHeight();
 exploreProductsBtn?.addEventListener("click", e => {
     e.preventDefault();
     productsWrapper.classList.add("opened");
-    setProductsWrapperHeight();
+    productsWrapper.style.maxHeight = `${productsWrapper.scrollHeight}px`;
     document.querySelector(".products .products__button").style.display = "none";
 })
 
@@ -385,7 +372,6 @@ document.querySelectorAll("[data-animation]").forEach(el => {
 
 window.addEventListener('resize', function() {
     setBurgerMenuHeight();
-    setProductsWrapperHeight();
 });
 
 //DYNAMIC YEAR IN FOOTER
