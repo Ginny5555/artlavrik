@@ -187,17 +187,6 @@ if (mainBannerLink) {
     })
 }
 
-const exploreProductsBtn = document.querySelector('button[data-role="products"]');
-const productsWrapper = document.querySelector(".products .products__wrapper");
-
-exploreProductsBtn?.addEventListener("click", e => {
-    e.preventDefault();
-    productsWrapper.classList.add("opened");
-    productsWrapper.style.maxHeight = `${productsWrapper.scrollHeight}px`;
-    document.querySelector(".products .products__button").style.display = "none";
-})
-
-
 const contactUsBtn = document.querySelectorAll('[data-role="contact-btn"]');
 Array.from(contactUsBtn).forEach(el => el.addEventListener("click", e => {
     e.preventDefault();
@@ -478,3 +467,29 @@ const designSlider = new Swiper(".product-design__slider .swiper", {
         el: '.product-design__slider .swiper-pagination',
     },
 })
+
+//PRODUCTS SLIDER
+
+const productsSliderBreakpoint = window.matchMedia('(min-width: 768px)');
+let productsSliderInstance;
+const enableProductsSlider = () => {
+    productsSliderInstance = new Swiper(".products .products__wrapper .swiper", {
+        modules: [Pagination],
+        slidesPerView: 1,
+        cssMode: true,
+        pagination: {
+            el: '.products .products__wrapper .swiper .swiper-pagination',
+        },
+    })
+}
+
+const productsSlider = () => {
+    if(productsSliderBreakpoint.matches){
+        if(productsSliderInstance !== undefined) productsSliderInstance.destroy(true, true);
+    } else if(!productsSliderBreakpoint.matches && document.querySelector(".products .products__wrapper .swiper") !== null){
+        return enableProductsSlider();
+    }
+}
+
+productsSliderBreakpoint.addListener(productsSlider);
+productsSlider();
