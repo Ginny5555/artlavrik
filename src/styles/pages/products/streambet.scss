@@ -1,0 +1,33 @@
+.product.streambet{
+    .products{
+        .streambet,
+        .priceex{
+            display: none;
+        }
+        .xrave{
+            order: 1;
+        }
+        .centrobill{
+            order: 2;
+        }
+        .raveos{
+            order: 3;
+            top: 0;
+        }
+        .exrates{
+            order: 4;
+            top: 0;
+        }
+        .swiper-wrapper{
+            @include sm{
+                height: 1096px;
+            }
+            @include md{
+                height: 1389px;
+            }
+            @include lg{
+                height: 1810px;
+            }
+        }
+    }
+}

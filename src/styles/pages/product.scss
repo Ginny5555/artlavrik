@@ -2582,6 +2582,18 @@
             padding: 120px 0 200px;
         }
 
+        .swiper-wrapper{
+            @include sm{
+                height: 1096px;
+            }
+            @include md{
+                height: 1493px;
+            }
+            @include lg{
+                height: 1810px;
+            }
+        }
+
         &__button {
             margin-top: 36px;
         }
