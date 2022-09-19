@@ -2187,6 +2187,14 @@
     }
 }
 
+.home{
+    .products{
+        .lined-title.products-title-product{
+            display: none;
+        }
+    }
+}
+
 @keyframes arrow-hover {
     0%, 100% {
         transform: translateX(0);

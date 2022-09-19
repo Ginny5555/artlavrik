@@ -82,6 +82,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "Stas Lavrik Design",
             page: "index",
+            bodyClassName: "home",
             ogTitle: "Design digital services since 2019",
             ogImage: "/images/logo.jpg",
             ogDescription: "Hi, we are a group of enthusiasts who make design their main life idea. Performing creativity in the engineering process, we provide our customers with effective and aesthetic solutions. Besides, we offer our business analyses expertise to get the closest interaction with customers, understanding and evaluating their goals.",
@@ -93,6 +94,7 @@ module.exports = {
 
         new HtmlWebpackPlugin({
             title: "XRave - Cryptocurrency exchange with banking accounts",
+            bodyClassName: "product xrave",
             page: "xrave",
             ogTitle: "Cryptocurrency exchange with banking accounts",
             ogImage: "/images/logo.jpg",
@@ -106,6 +108,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "StreamBet - Multidisciplinary betting and streaming platform",
             page: "streambet",
+            bodyClassName: "product streambet",
             ogTitle: "Multidisciplinary betting and streaming platform",
             ogImage: "/images/logo.jpg",
             ogDescription: "Streambet is a fast betting platform. Here you can easily bet on the outcome of your favorite e-sports and sports events. It’s also possible to place instant bets on broadcasts from a specific streamer. A user who participates in an instant bet answers only \"Yes\" or \"No\". In case of a win, the user will receive an amount that will depend on how many more people have bet on a particular outcome.",
@@ -118,6 +121,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "CentroBill - Processing service CentroBill",
             page: "centrobill",
+            bodyClassName: "product centrobill",
             ogTitle: "Processing service CentroBill",
             ogImage: "/images/logo.jpg",
             ogDescription: "CentroBill is a fast B2B platform. Here you can easily bet on the outcome of your favorite e-sports and sports events. It’s also possible to place instant bets on broadcasts from a specific streamer. A user who participates in an instant bet answers only \"Yes\" or \"No\". In case of a win, the user will receive an amount that will depend on how many more people have bet on a particular outcome.",
@@ -130,6 +134,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "Exrates - Cryptocurrency exchange Exrates 2.0",
             page: "exrates",
+            bodyClassName: "product exrates",
             ogTitle: "Platform for cryptocurrency exchange Exrates 2.0",
             ogImage: "/images/logo.jpg",
             ogDescription: "Cryptocurrency exchange, top-20 coinmarketcup 2018. Fast and inuitive solution for traders from all world. Exrates is the easiest place to buy, sell and trade digital currencies, including Bitcoin, Ethereum, XRP, BNB, Zcash and many more.",
@@ -142,6 +147,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "RaveOs - FEATURED MINING OS",
             page: "raveos",
+            bodyClassName: "product raveos",
             ogTitle: "FEATURED MINING OS",
             ogImage: "/images/logo.jpg",
             ogDescription: "Only real enthusiasts were able to set up and adapt programs for the process of mining crypto coins. Third-party, albeit universal, programs didn’t provide the proper efficiency of cryptomining, so more and more improvements appeared. EthOS, SimpleMining and Awesome Miner have become the fruit of long work on the development of mining. Thus, the main hype happened, there was a huge demand for high-quality mining programs. Now there are several new programs for mining.",
@@ -154,6 +160,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "Thanks for your request",
             page: "success",
+            bodyClassName: "success",
             ogTitle: "Design digital services since 2019",
             ogImage: "/images/logo.jpg",
             ogDescription: "Hi, we are a group of enthusiasts who make design their main life idea. Performing creativity in the engineering process, we provide our customers with effective and aesthetic solutions. Besides, we offer our business analyses expertise to get the closest interaction with customers, understanding and evaluating their goals.",
