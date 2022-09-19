@@ -425,6 +425,11 @@
 
                 }
             }
+            .swiper-pagination{
+                @include md{
+                    display: none;
+                }
+            }
         }
 
         .service-card{
@@ -436,7 +441,6 @@
 
             &:hover {
                 .service-card__link {
-                    opacity: 1;
                     svg{
                         animation: arrow-hover 1s infinite ease-in-out;
                     }
@@ -539,7 +543,7 @@
 
             &__link{
                 position: absolute;
-                display: flex;
+                display: none;
                 align-items: center;
                 bottom: 24px;
                 right: 24px;
@@ -548,7 +552,9 @@
                 line-height: 24px;
                 color: $link;
                 transition: all $hover-transition-length ease-in-out;
-                opacity: 0;
+                @include md{
+                    display: flex;
+                }
 
                 svg{
                     margin-left: 4px;
