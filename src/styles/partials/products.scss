@@ -284,7 +284,10 @@
                     bottom: 0;
                     right: 0;
                     width: 320px;
-                    height: 250px;
+                    height: 360px;
+                    @include sm{
+                        height: 250px;
+                    }
                     @include md{
                         width: 410px;
                         height: 320px;
@@ -331,7 +334,10 @@
                     bottom: 0;
                     right: 0;
                     width: 320px;
-                    height: 250px;
+                    height: 360px;
+                    @include sm{
+                        height: 250px;
+                    }
                     @include md{
                         width: 410px;
                         height: 320px;
@@ -392,7 +398,7 @@
                     }
                 }
                 .product__content{
-                    width: 210px;
+                    width: 271px;
                     @include md{
                         width: 345px;
                     }
@@ -421,8 +427,12 @@
                     position: absolute;
                     bottom: 0;
                     right: 0;
-                    width: 195px;
-                    height: 255px;
+                    width: 215px;
+                    height: 370px;
+                    @include sm{
+                        width: 195px;
+                        height: 255px;
+                    }
                     @include md{
                         width: 286px;
                         height: 316px;
@@ -471,8 +481,12 @@
                     position: absolute;
                     bottom: 0;
                     right: 0;
-                    width: 195px;
-                    height: 255px;
+                    width: 215px;
+                    height: 370px;
+                    @include sm{
+                        width: 195px;
+                        height: 255px;
+                    }
                     @include md{
                         width: 286px;
                         height: 316px;
