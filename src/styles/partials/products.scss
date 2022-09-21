@@ -289,18 +289,31 @@
                     }
                 }
                 .product__content{
-                    width: 187px;
+                    width: 250px;
+                    @include sm{
+                        width: 187px;
+                    }
                     @include md{
                         width: 374px;
                     }
                     .product-title{
-                        @media("max-width: 959px"){
+                        font-size: 24px;
+                        line-height: 36px;
+                        @include sm{
                             font-size: 18px;
                             line-height: 28px;
                         }
+                        @include md{
+                            font-size: 36px;
+                            line-height: 44px;
+                        }
+
                     }
                     .product-explore{
-                        margin-top: 12px;
+                        margin-top: 24px;
+                        @include sm{
+                            margin-top: 12px;
+                        }
                         @include md{
                             margin-top: 28px;
                         }
@@ -339,18 +352,30 @@
                     }
                 }
                 .product__content{
-                    width: 187px;
+                    width: 192px;
+                    @include sm{
+                        width: 144px;
+                    }
                     @include md{
-                        width: 374px;
+                        width: 288px;
                     }
                     .product-title{
-                        @media("max-width: 959px"){
+                        font-size: 24px;
+                        line-height: 36px;
+                        @include sm{
                             font-size: 18px;
                             line-height: 28px;
                         }
+                        @include md{
+                            font-size: 36px;
+                            line-height: 44px;
+                        }
                     }
                     .product-explore{
-                        margin-top: 12px;
+                        margin-top: 24px;
+                        @include sm{
+                            margin-top: 12px;
+                        }
                         @include md{
                             margin-top: 28px;
                         }
@@ -434,18 +459,30 @@
                     }
                 }
                 .product__content{
-                    width: 194px;
+                    width: 258px;
+                    @include sm{
+                        width: 194px;
+                    }
                     @include md{
                         width: 387px;
                     }
                     .product-title{
-                        @media("max-width: 959px"){
+                        font-size: 24px;
+                        line-height: 36px;
+                        @include sm{
                             font-size: 18px;
                             line-height: 28px;
                         }
+                        @include md{
+                            font-size: 36px;
+                            line-height: 44px;
+                        }
                     }
                     .product-explore{
-                        margin-top: 12px;
+                        margin-top: 24px;
+                        @include sm{
+                            margin-top: 12px;
+                        }
                         @include md{
                             margin-top: 28px;
                         }
@@ -473,7 +510,7 @@
                     bottom: 0;
                     right: 0;
                     width: 245px;
-                    height: 330px;
+                    height: 310px;
                     @include sm{
                         width: 195px;
                         height: 255px;
@@ -488,18 +525,30 @@
                     }
                 }
                 .product__content{
-                    width: 192px;
+                    width: 281px;
+                    @include sm{
+                        width: 192px;
+                    }
                     @include md{
                         width: 383px;
                     }
                     .product-title{
-                        @media("max-width: 959px"){
+                        font-size: 24px;
+                        line-height: 36px;
+                        @include sm{
                             font-size: 18px;
                             line-height: 28px;
                         }
+                        @include md{
+                            font-size: 36px;
+                            line-height: 44px;
+                        }
                     }
                     .product-explore{
-                        margin-top: 12px;
+                        margin-top: 24px;
+                        @include sm{
+                            margin-top: 12px;
+                        }
                         @include md{
                             margin-top: 28px;
                         }
