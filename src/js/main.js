@@ -27,9 +27,9 @@ const enableTeamSlider = () => {
             768: {
                 spaceBetween: 20
             },
-            1280: {
-                spaceBetween: 30
-            },
+            // 1280: {
+            //     spaceBetween: 30
+            // },
         },
         pagination: {
             el: '.team__slider .swiper-pagination',
@@ -50,32 +50,32 @@ teamSliderBreakpoint.addListener(teamSlider);
 teamSlider();
 
 
-// SERVICES SLIDER
-const servicesSliderBreakpoint = window.matchMedia('(min-width: 960px)');
-let servicesSliderInstance;
-const enableServicesSlider = () => {
-    servicesSliderInstance = new Swiper(".services__wrapper .swiper", {
+// resources SLIDER
+const resourcesSliderBreakpoint = window.matchMedia('(min-width: 767px)');
+let resourcesSliderInstance;
+const enableresourcesSlider = () => {
+    resourcesSliderInstance = new Swiper(".resources__wrapper .swiper", {
         modules: [Pagination],
         slidesPerView: 'auto',
         spaceBetween: 9,
         cssMode: true,
         pagination: {
-            el: '.services__wrapper .swiper-pagination',
+            el: '.resources__wrapper .swiper-pagination',
         },
     })
 }
 
-const servicesSlider = () => {
-    if(servicesSliderBreakpoint.matches){
-        if(servicesSliderInstance !== undefined) servicesSliderInstance.destroy(true, true);
+const resourcesSlider = () => {
+    if(resourcesSliderBreakpoint.matches){
+        if(resourcesSliderInstance !== undefined) resourcesSliderInstance.destroy(true, true);
         return;
-    } else if(!servicesSliderBreakpoint.matches && document.querySelector(".services__wrapper .swiper") !== null){
-        return enableServicesSlider();
+    } else if(!resourcesSliderBreakpoint.matches && document.querySelector(".resources__wrapper .swiper") !== null){
+        return enableresourcesSlider();
     }
 }
 
-servicesSliderBreakpoint.addListener(servicesSlider);
-servicesSlider();
+resourcesSliderBreakpoint.addListener(resourcesSlider);
+resourcesSlider();
 
 // MENU
 const burgerButton = document.getElementById("burger-button");
@@ -101,24 +101,91 @@ burgerButton.addEventListener("click", () => {
 });
 
 //HEADER SHOW-HIDE
+// document.addEventListener("mousemove", (e) => {
+//     const breakpoint = window.matchMedia('(min-width: 1280px)');
+//     breakpoint.matches && e.clientY < 80 ? header.classList.add("hovered") : header.classList.remove("hovered");
+// });
+
+// let lastScrollTop = 0;
+
+// document.addEventListener("scroll", function(){
+//     let widthDevice = window.innerWidth > 600;
+//     let offst = window.pageYOffset ;
+    // let st =  document.documentElement.scrollTop;
+//     // let st = window.pageYOffset || document.documentElement.scrollTop;
+//     if (st > lastScrollTop && st > 100){
+//         header.classList.remove("visible")
+//     } else {
+//         if(st !== 0){
+//             header.classList.add("visible")
+
+//         }
+//         else{
+//             if(offst == 0  ){
+//                 header.classList.remove("visible")
+//             }
+//         }
+//     }
+//     lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+// }, false);
+
+
 document.addEventListener("mousemove", (e) => {
-    const breakpoint = window.matchMedia('(min-width: 1280px)');
+    const breakpoint = window.matchMedia('(min-width: 1440px)');
     breakpoint.matches && e.clientY < 80 ? header.classList.add("hovered") : header.classList.remove("hovered");
 });
 
-let lastScrollTop = 0;
 
+//     if(/index/.test(window.location.href)){
+// $('header').removeClass('visible');
+
+// }
+
+let lastScrollTop = 0;
 document.addEventListener("scroll", function(){
     let st = window.pageYOffset || document.documentElement.scrollTop;
     if (st > lastScrollTop && st > 100){
-        header.classList.remove("visible")
+        header.classList.remove("visible");
     } else {
-        if(st !== 0){
-            header.classList.add("visible")
+        if(st !== 0 ){
+            header.classList.add("visible");
         }
     }
     lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
 }, false);
+
+
+function hidedFunctions() {
+    let r = window.location.pathname;
+    console.log(r);
+    let indx = window.pageYOffset == 0  && r == '/' ;
+    let noIndx = r !== '/'|| document.documentElement.clientWidth <= 767;
+    header.classList.remove("hided");
+    //&& document.documentElement.clientWidth <= 767
+    if(indx && document.documentElement.clientWidth >= 767 ){
+        header.classList.add("hided");
+
+    }
+    else{
+        if(noIndx || document.documentElement.scrollTop > 100){
+
+            header.classList.remove("hided");
+
+        }
+
+        else{
+            header.classList.add("hided");
+
+     }
+
+    }
+}
+
+window.addEventListener('scroll', hidedFunctions);
+window.addEventListener('load', hidedFunctions);
+window.addEventListener('offset', hidedFunctions);
+window.addEventListener('resize', hidedFunctions);
+
 
 //MENU SCROLLER
 const linkItems  = document.querySelectorAll(".burger-menu__item > a");
@@ -165,7 +232,32 @@ headerLinks.forEach(item => {
         }
     })
 })
-
+const headerLink  = document.querySelectorAll("section .nav-menu__item > a");
+headerLink.forEach(item => {
+    const className = item.getAttribute("data-scroll");
+    item.addEventListener("click", e => {
+        switch (className) {
+            case "contacts":
+                e.preventDefault();
+                contactForm.classList.add('opened');
+                body.classList.add("noscroll");
+                break;
+            case "skip":
+                break;
+            default:
+                e.preventDefault();
+                if (location.pathname !== "/"){
+                    localStorage.setItem("scrollTo", className);
+                    location.href = "/"
+                } else {
+                    const menu = document.querySelector(`[data-scroll=${className}]`);
+                    menu.classList.add("pressed");
+                    setTimeout(() => menu.classList.remove("pressed"), 2000)
+                    elementScrollIntoView(document.querySelector(`.${className}`), { behavior: "smooth" });
+                }
+        }
+    })
+})
 const scrollTo = localStorage.getItem("scrollTo")
 if(scrollTo){
     document.onreadystatechange = () => {
@@ -183,7 +275,7 @@ const mainBannerLink = document.querySelector('a[data-role="portfolio"]');
 if (mainBannerLink) {
     mainBannerLink.addEventListener("click", e => {
         e.preventDefault();
-        setTimeout(() => elementScrollIntoView(document.querySelector('.products'), { behavior: "smooth" }), 300 );
+        setTimeout(() => elementScrollIntoView(document.querySelector('.products-in'), { behavior: "smooth" }), 300 );
     })
 }
 
@@ -384,7 +476,7 @@ const enableAboutSlider = () => {
             768: {
                 spaceBetween: 20
             },
-            1280: {
+            1440: {
                 spaceBetween: 30
             },
         },
@@ -458,15 +550,41 @@ const designSlider = new Swiper(".product-design__slider .swiper", {
         768: {
             slidesPerView: 'auto'
         },
-        1280: {
-            slidesPerView: 'auto',
-            spaceBetween: 30
-        },
+        // 1280: {
+        //     slidesPerView: 'auto',
+        //     spaceBetween: 30
+        // },
     },
     pagination: {
         el: '.product-design__slider .swiper-pagination',
     },
 })
+
+//PRODUCTS-IN  SLIDER
+
+const productsInSliderBreakpoint = window.matchMedia('(min-width: 768px)');
+let productsInSliderInstance;
+const enableProductsInSlider = () => {
+    productsInSliderInstance = new Swiper(".products-in .products-in__wrapper .swiper", {
+        modules: [Pagination],
+        slidesPerView: 1,
+        cssMode: true,
+        pagination: {
+            el: '.products-in .products-in__wrapper .swiper .swiper-pagination',
+        },
+    })
+}
+
+const productsInSlider = () => {
+    if(productsInSliderBreakpoint.matches){
+        if(productsInSliderInstance !== undefined) productsInSliderInstance.destroy(true, true);
+    } else if(!productsInSliderBreakpoint.matches && document.querySelector(".products-in .products-in__wrapper .swiper") !== null){
+        return enableProductsInSlider();
+    }
+}
+
+productsInSliderBreakpoint.addListener(productsInSlider);
+productsInSlider();
 
 //PRODUCTS SLIDER
 
@@ -493,3 +611,119 @@ const productsSlider = () => {
 
 productsSliderBreakpoint.addListener(productsSlider);
 productsSlider();
+
+
+//random data (gif)
+
+let search = 'hello';
+    let apiKey = 'OZJXtDVHcBI3VMuUwz79efr4IRzq3LFB';
+    let limit = 100;
+    let url = `https://api.giphy.com/v1/gifs/search?q=${search}&api_key=${apiKey}&limit=${limit}`;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.responseType = 'json';
+    xhr.send();
+    xhr.onload = function() {
+        let data = xhr.response;
+        let gifData = data.data;
+
+        let rand = Math.floor( Math.random() * gifData.length);
+        let randomGif = document.getElementById('randomgif');
+
+        randomGif.src = data.data[rand].images?.original?.url;
+        console.log(data);
+    };
+
+//random data (hello)
+let arrHello = [
+    'Hola',
+    'Aloha',
+    'Hi there',
+    'Привіт',
+    'Salut'
+];
+let randHello = Math.floor( Math.random() * arrHello.length);
+let elem = document.getElementById('random-hello');
+let delay = 100; // cкорость
+let current = 0;
+
+const emojiContainer = document.getElementById('emoji') // контейнер с емоджи
+
+// emojiContainer.style.visibility = 'hidden' - можно скрывать тут, что б не использовать инлайн стили
+
+setInterval(function(){
+    let textGreet = arrHello[current];
+    elem.innerHTML= '';
+    current++;
+
+    emojiContainer.style.visibility = 'hidden'; // скрываем на каждом новом приветствии
+
+    if(current >= arrHello.length) current = 0;
+    let print_text = function(textGreet, elem, delay) {
+        if(textGreet.length > 0) {
+            elem.innerHTML += textGreet[0];
+            setTimeout(
+                function() {
+                    print_text(textGreet.slice(1), elem, delay);
+                }, delay
+            );
+        }else{
+            emojiContainer.style.visibility = 'visible'; // показываем если буквы для вывода закончились
+        }
+    }
+    print_text(textGreet, elem, delay);
+
+
+}, 3000);
+
+
+//products animation
+
+// $(document).resize(function()
+// {$("#slide").show();
+//  $( ".slided" ).hide();
+//     if ($(window).width() <= '661') {
+//         $("#slide").hide();
+//         $( ".slided" ).show();
+//     } else {
+//         $("#slide").show();
+//         $( ".slided" ).hide();
+//     }
+
+
+// });
+
+$(".see-less").hide();
+        $(".see-more").show();
+$( "#slide" ).click(function () {
+    if ( $( ".slided" ).first().is( ":hidden" )||$(window).width() <= '661') {
+        $( ".slided" ).slideDown(600);
+        $( ".slided-show" ).hide();
+        $(".see-more").hide();
+        $(".see-less").show();
+        setInterval(function() {
+           if ( $( ".slided-show"  ).first().is( ":hidden" ) ){
+
+        $( ".slided-show" ).fadeIn(100);
+      }
+
+    }, 600);
+
+    } else {
+        $( ".slided-show" ).hide('fast');
+        $( ".slided"  ).slideUp(600);
+        $(".see-more").show();
+        $(".see-less").hide();
+    }
+  });
+
+///downloading CV
+
+  $('.download').on('click', function(){
+    var link = document.createElement('a');
+    link.setAttribute('href', '/Stanislav_Lavrik_resume - 2023.pdf');
+    link.setAttribute('download', 'Stanislav_Lavrik_resume - 2023.pdf');
+    link.click();
+    return false;
+});

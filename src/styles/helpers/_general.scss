@@ -41,7 +41,26 @@ body{
 .font-opensans {
     font-family: 'Open Sans', sans-serif;
 }
+///new index lined-title
+.lined-titl{
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 36px;
+	font-feature-settings: 'pnum' on, 'lnum' on;
+	text-align: left;
+	overflow: hidden;
 
+	@include sm{
+		font-size: 36px;
+		line-height: 44px;
+	}
+
+	@include lg{
+		font-size: 48px;
+		line-height: 125%;
+	}
+}
+///
 .lined-title{
 	font-weight: 600;
 	font-size: 24px;
@@ -97,6 +116,7 @@ body{
 	}
 
 }
+
 
 .swiper-pagination{
 	&-bullet{

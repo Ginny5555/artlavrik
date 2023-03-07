@@ -80,12 +80,12 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
-            title: "Stas Lavrik Design",
+            title: "Hi there",
             page: "index",
             bodyClassName: "home",
-            ogTitle: "Design digital services since 2019",
+            ogTitle: "I`m Stan Lavrik,",
             ogImage: "/images/logo.jpg",
-            ogDescription: "Hi, we are a group of enthusiasts who make design their main life idea. Performing creativity in the engineering process, we provide our customers with effective and aesthetic solutions. Besides, we offer our business analyses expertise to get the closest interaction with customers, understanding and evaluating their goals.",
+            ogDescription: "I specialize in creating, updating and scaling products and systems for a variety of industriesincluding Web3, Fintech, Crypto, Gambling and beyond.",
             template: 'src/templates/index.hbs',
             filename: 'index.html',
             inject: 'body',

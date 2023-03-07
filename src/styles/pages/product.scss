@@ -257,7 +257,6 @@
                 color: $secondary-text;
                 margin-top: 16px;
             }
-
             .swiper {
                 &-wrapper {
                     @include sm {
@@ -268,6 +267,7 @@
                         column-gap: 30px;
                     }
                 }
+
                 &-slide {
                     @include sm {
                         flex-shrink: inherit;
@@ -283,6 +283,7 @@
                     }
                 }
             }
+
         }
     }
 
@@ -828,6 +829,7 @@
                         height: 528px;
                     }
                 }
+
                 &-slide {
                     display: flex;
                     flex-flow: column;
@@ -914,6 +916,7 @@
                     }
                 }
             }
+
         }
     }
 
@@ -1093,6 +1096,7 @@
                     }
                 }
             }
+
         }
 
         &__cjm {
@@ -1247,6 +1251,7 @@
                     margin-top: 18px;
                 }
             }
+
         }
 
         &__list {
@@ -2579,7 +2584,7 @@
         }
 
         @include lg{
-            padding: 120px 0 200px;
+            padding: 120px 0 120px;
         }
 
         .swiper-wrapper{
@@ -2592,7 +2597,9 @@
             @include lg{
                 height: 1810px;
             }
+
         }
+
 
         &__button {
             margin-top: 36px;
